@@ -29,6 +29,17 @@ const populateData = () => {
         //discuss BEM if time permits
         const $infoContainer = $("<div>").addClass("info-container");
         const $nameDiv = $('<div>').addClass('name').text(data[i].name);
+
+        function sayName() {
+            console.log(data[i].name);
+        }
+
+        $nameDiv.on('click', sayName);
+        
+        // $nameDiv.on('click', () => {
+        //     console.log(`${data[i].name} has been clicked`)
+        // })
+
         const $addressDiv = $("<div>").addClass('address').text(data[i].address);
         //This way
         // $infoContainer.append($nameDiv)
