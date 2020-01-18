@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-image: url("../img/sailboat.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.header-text, .nav-links {
+    text-transform: uppercase;
+}
+
+.header-text {
+    text-align: center;
+    color: white;
+    margin: auto;
+    font-size: 2em;
+    line-height: .8em;
+}
+
+.header-text h1 {
+    letter-spacing: .2em;
+    font-weight: 800;
+    font-size: 3em;
+}
+
+.header-text h4 {
+    font-size: .8em;
+    font-weight: normal;
+    letter-spacing: .2em;
+}
+
+nav {
+    background-color: black;
+    color: white;
+    display: flex;
+    padding: 3em;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+nav > li {
+    list-style: none;
+    letter-spacing: .2em;
+    padding: 10px;
+}
+
+nav > li > a {
+    color: white;
+    text-decoration: none;
+}
+
+.call-to-action {
+    font-size: 2.7em;
+    font-weight: 200;
+    width: 70%;
+    margin: 2em auto;
+    line-height: 1.75em;
+    letter-spacing: .05em;
+    font-family: Helvetica, sans-serif;
+}
+
+.break {
+    width: 90%;
+    border: 1px solid rgb(233, 233, 233);
+}
+
+.card-container {
+    width: 90%;
+    margin: 3em auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    max-width: 500px;
+    margin-bottom: 3em;
+}
+
+.card img {
+    max-width: 500px;
+}
+
+.card h3 {
+    font-weight: 100;
+    font-family: Helvetica, sans-serif;
+    font-size: 2.5em;
+}
+
+
+
+.card p, .card a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    text-decoration: none;
+    padding-top: 1em;
+}
+
+.card p {
+    color: rgb(162, 162, 162);
+}
+
+.card a {
+    color: black;
+}
+
+.arrow {
+    font-size: .6em;
+    padding-left: 5px;
+    padding-top: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+aside {
+    margin-top: 10em;
+    margin-bottom: 5em;;
+    padding-left: 5%;
+    color: rgb(162, 162, 162);
+    font-style: italic;
+}
+
+
+aside a {
+    color: black;
+    text-decoration: none;
+}
+
+
+footer {
+    padding: 2em;
+    text-align: center;
+    border-top: 2px solid rgb(233, 233, 233);
+}
+
+
+footer img {
+    height: 50px;
+}
+
+
+@media only screen and (max-width: 1600px) {
+    .card {
+        max-width: 350px;
+        margin-bottom: 3em;
+    }
+    
+    .card img {
+        max-width: 350px;
+    }
+
+    .card p, .card a {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5em;
+        text-decoration: none;
+        padding-top: 1em;
+    }
+
+    .card h3 {
+        font-weight: 100;
+        font-family: Helvetica, sans-serif;
+        font-size: 2.25em;
+    }
+  }
