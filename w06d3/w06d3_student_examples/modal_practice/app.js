@@ -25,5 +25,7 @@ $( () => {
 //Add event listener to Close button
   $closeBtn.on("click", closeModal)
 
+  setTimeout(openModal, 5000)
+
 
 });
