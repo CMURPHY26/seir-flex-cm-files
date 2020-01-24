@@ -1,6 +1,9 @@
 
 const handleButtonClick= (event) => {
-    console.log(typeof $(event.target).text());
+    if($(event.target).hasClass("number")) {
+        $(".display").append($(event.target).text());
+    }
+    /
 }
 
 
