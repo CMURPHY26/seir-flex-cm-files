@@ -9,6 +9,7 @@ body {
   }
   .display {
     width: 335px;
+    height: 30px;
     border: 2px solid black;
     font-size: 24px;
     display: block;

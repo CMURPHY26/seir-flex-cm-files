@@ -2,7 +2,9 @@
 //////////////////////
 ////IRA Solution
 /////////////////////
-var firstNumber, secondNumber, operation;
+let firstNumber, secondNumber, operation;
+
+//const doMathOnNumbers - add this function to make DRY
 
 $(() => {
     
