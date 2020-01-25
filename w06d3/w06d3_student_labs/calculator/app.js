@@ -30,12 +30,14 @@ $(() => {
             //another way
             if(buttonValue === "+") {
                 console.log("Plus button clicked");
+                operation = buttonValue;
+                //Check if a firstNumber already exists
             //Ternary syntax:
             //    firstNumber ? alert("Number already defined") : (firstNumber = displayValue);
                 if(firstNumber) {
                     alert("Number is already defined")
                 } else{
-                    firstNumber = displayValue;
+                    firstNumber = Number(displayValue);
                     $(".display").text("");
                 }
                 
@@ -43,7 +45,12 @@ $(() => {
                 console.log("Minus button clicked");
             } else if (buttonValue === "=") {
                 //add, subtract, divide or multiply and return answer
-
+                if(operation === "+") {
+                    //grab the second number
+                    secondNumber = Number(displayValue);
+                    //sum the numbers and update the display
+                    $(".display").text(firstNumber + secondNumber);
+                }
             }
         }
         
