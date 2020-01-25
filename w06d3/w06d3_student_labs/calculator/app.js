@@ -2,16 +2,53 @@
 //////////////////////
 ////IRA Solution
 /////////////////////
-
+var firstNumber, secondNumber, operation;
 
 $(() => {
+    
 
     console.log("Javascript + jQuery has loaded");
 
     const handleButtonClick = event => {
-        const buttonClicked = $(event.target).text();
-    //   console.log($(event.target).text());
-        $(".display").append(buttonClicked);
+        const buttonValue = $(event.target).text();
+        const displayValue = $(".display").text();
+        // console.log(typeof buttonValue);
+        //console.log($(event.target).text());
+        // console.log($(event.target).parent().attr("class"));
+        //Find out if button is button-container or operations container
+        //(Number or operator)
+        const buttonType = $(event.target).parent().attr("class");
+
+        if(buttonType === "button-container") {
+            $(".display").text(`${displayValue}${buttonValue}`);
+        } else {
+            //if an operations button is clicked
+            // console.log("operation button clicked");
+            //detect which operation:
+            //if($(event.target).attr("id") === "add");
+
+            //another way
+            if(buttonValue === "+") {
+                console.log("Plus button clicked");
+            //Ternary syntax:
+            //    firstNumber ? alert("Number already defined") : (firstNumber = displayValue);
+                if(firstNumber) {
+                    alert("Number is already defined")
+                } else{
+                    firstNumber = displayValue;
+                    $(".display").text("");
+                }
+                
+            } else if( buttonValue === "-") {
+                console.log("Minus button clicked");
+            } else if (buttonValue === "=") {
+                //add, subtract, divide or multiply and return answer
+
+            }
+        }
+        
+        
+        
     };
 
 
