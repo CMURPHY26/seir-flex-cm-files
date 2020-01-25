@@ -1,42 +1,76 @@
-const ifNumber = (event) => {
-    if($(event.target).hasClass("number")) {
-        $(".display").append($(event.target).text());
-    }
-}
+
+//////////////////////
+////IRA Solution
+/////////////////////
+
+
+$(() => {
+
+    console.log("Javascript + jQuery has loaded");
+
+    const handleButtonClick = event => {
+        const buttonClicked = $(event.target).text();
+    //   console.log($(event.target).text());
+        $(".display").append(buttonClicked);
+    };
 
 
 
-const ifOperator = (event) => {
-    if($(event.target).text()=== "+"){
-        let num1 = Number($(".display").text());
-        $(".display").empty();
-        ifNumber(event);
-        if(num1 >= 0) {
-        let num2 = Number($(".display").text());
-        console.log(num2);
-        }
-    }
-}
-
-
-const handleButtonClick= (event) => {
-    ifNumber(event);
-    ifOperator(event);
-}
-
-
-
-$( () => {
-
-    console.log("It's working!");
-
+    // All your code goes here:
     $(".button").on("click", handleButtonClick);
+  });
+
+
+
+
+
+
+///////////////////////////
+//////CHRIS CODE
+//////////////////////////
+
+
+// const ifNumber = (event) => {
+//     if($(event.target).hasClass("number")) {
+//         $(".display").append($(event.target).text());
+//     }
+// }
+
+// const numArray = [];
+
+// const ifOperator = (event) => {
+//     if($(event.target).text()=== "+"){
+//         numArray.push(Number($(".display").text()));
+//         $(".display").empty();
+//         ifNumber(event);
+//         if(num1 >= 0) {
+//         let num2 = Number($(".display").text());
+//         console.log(num2);
+//         }
+//     }
+// }
+
+
+// const handleButtonClick= (event) => {
+//     ifNumber(event);
+//     ifOperator(event);
+// }
+
+
+
+// $( () => {
+
+//     console.log("It's working!");
+
+//     $(".button").on("click", handleButtonClick);
     
-});
+// });
 
 
 
-
+///////////////////////
+/////OLD CODE
+//////////////////////
 // //CREATE function that stores clicked numbers
 // const storeNumber = (event) => {
 //     let num = $(event.target).text();
