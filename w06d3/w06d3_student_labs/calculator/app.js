@@ -1,9 +1,27 @@
-
-const handleButtonClick= (event) => {
+const ifNumber = (event) => {
     if($(event.target).hasClass("number")) {
         $(".display").append($(event.target).text());
     }
-    /
+}
+
+
+
+const ifOperator = (event) => {
+    if($(event.target).text()=== "+"){
+        let num1 = Number($(".display").text());
+        $(".display").empty();
+        ifNumber(event);
+        if(num1 >= 0) {
+        let num2 = Number($(".display").text());
+        console.log(num2);
+        }
+    }
+}
+
+
+const handleButtonClick= (event) => {
+    ifNumber(event);
+    ifOperator(event);
 }
 
 
