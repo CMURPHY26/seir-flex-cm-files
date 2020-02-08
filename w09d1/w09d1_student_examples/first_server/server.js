@@ -14,11 +14,11 @@ app.get("/secret", (req, res) => {
 });
 
 app.get("/", (request, response) => {
-    response.send("Hi from the back end!Welcome to the root index page.");
+    response.send("Hi from the back end! Welcome to the root index page.");
 });
 
 app.get("/somedata", (req, res) => {
-    res.send("Here is your information");
+    res.send("Here is your new3 information");
 });
 
 // app.post("/", (request, response) => {
