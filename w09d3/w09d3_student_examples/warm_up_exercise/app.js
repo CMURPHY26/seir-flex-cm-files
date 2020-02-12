@@ -19,6 +19,7 @@ const freqs = findWordFrequencies('That that is is that that is not is not');
 const findHighestFrequency = (obj) => {
     let highFreqObj = {};
     let highestFreq = "";
+    let highestNumber;
     for(key in obj) {
         if(highestFreq === ""){
             highestFreq = key;
