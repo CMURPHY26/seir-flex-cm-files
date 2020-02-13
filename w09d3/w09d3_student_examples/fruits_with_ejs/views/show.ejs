@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Show Page</title>
+</head>
+<body>
+    <h1>Fruits Show Page</h1>
+    <p>The fruit you requested is:</p>
+    <p>
+        <%= fruit.name.toUpperCase() %>
+    </p>
+    <p><% if(fruit.readyToEat) { %>
+        It is ready to eat.
+        <% } else { %>
+            It is NOT ready to eat.
+        <% } %>
+    </p>
+</body>
+</html>
