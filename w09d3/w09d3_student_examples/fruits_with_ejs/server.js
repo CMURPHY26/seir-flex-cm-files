@@ -16,7 +16,8 @@ app.get("/fruits/:id", (req, res) => {
 });
 
 app.get("/fruits/", (req, res) => {
-    res.send(fruits);
+    // res.send(fruits);
+    res.render("index.ejs", {fruits: fruits});
 });
 
 
