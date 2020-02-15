@@ -10,13 +10,13 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<body class="center-align">
+<body class="center-align teal lighten-2">
     <h1>Biscoff Bakery</h1>
     <ul>
     <% for( let i = 0; i < bakedGoods.length; i += 1) { %>
-        <li class="hoverable"><a href="/bakedgoods/<%= i %>"> <%= bakedGoods[i].name %></a></li>
+        <li class="hoverable white-text"><a class="white-text" href="/bakedgoods/<%= i %>"> <%= bakedGoods[i].name %></a> $<%= bakedGoods[i].price %></li>
     <% } %>
     </ul>
-    <p class="hoverable"><a href="/bakedgoods/new">Add new bakery item</a></p>
+    <p class="hoverable"><a class="white-text" href="/bakedgoods/new">Add new bakery item</a></p>
 </body>
 </html>
