@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars Homepage</title>
+</head>
+<body>
+    <h1>Mars Missions Homepage</h1>
+    <ul>
+        <% for (let i = 0; i < marsMissions.length; i++) { %>
+            <li><a href="/missions/<%= i %>"><%= marsMissions[i].name %></a></li>
+        <% } %>
+        <!-- <li><a href=/missions/0><%= marsMissions[0].name %></a></li>
+        <li><a href=/missions/1><%= marsMissions[1].name %></a></li>
+        <li><a href=/missions/2><%= marsMissions[2].name %></a></li>
+        <li><a href=/missions/3><%= marsMissions[3].name %></a></li>
+        <li><a href=/missions/4><%= marsMissions[4].name %></a></li> -->
+    </ul>
+</body>
+</html>
