@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biscoff Bakery Item Page</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body class="center-align">
+    <h1>Biscoff Bakery</h1>
+    <p class="hoverable"><a href="/bakedgoods/">Back to the Homepage</a></p>
+    <h4><%= bakedGood.name %></h2>
+    <h4>Price: $<%= bakedGood.price %></h3>
+    <img class="hoverable" src= <%= bakedGood.image %> alt=<%= bakedGood.name %> width=500 />
+</body>
+</html>
