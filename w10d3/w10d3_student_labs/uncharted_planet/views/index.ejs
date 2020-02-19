@@ -9,7 +9,11 @@
     <h1>Scientists</h1>
     <ul>
     <% for (let i = 0; i < scientists.length; i++) { %>
-        <li><%= scientists[i].name %></li>
+        <li><%= scientists[i].name %> <br /> 
+        <form action="/planet/<%= i %>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE">
+        </form>
+        </li>
    <% } %>
     </ul>
     <a href="/planet/new"><button>Add New Scientist</button></a>

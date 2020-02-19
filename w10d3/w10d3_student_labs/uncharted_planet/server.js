@@ -28,6 +28,12 @@ app.post("/", (req, res) => {
 });
 
 
+app.delete("/planet/:id", (req, res) => {
+    scientists.splice(scientists[req.params.id], 1);
+    res.redirect("/planet");
+});
+
+
 
 app.listen(port, () => {
     console.log("Server is running on port", port);
