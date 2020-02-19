@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Index Page</title>
+</head>
+<body>
+    <h1>Scientists</h1>
+    <ul>
+    <% for (let i = 0; i < scientists.length; i++) { %>
+        <li><%= scientists[i].name %></li>
+   <% } %>
+    </ul>
+    <a href="/planet/new"><button>Add New Scientist</button></a>
+</body>
+</html>
