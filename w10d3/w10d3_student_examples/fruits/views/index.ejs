@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Fruits Homepage</title>
+        <link rel="stylesheet" href="/css/app.css">    
+    </head>
+    <body>
+        <h1>Fruits Index Page</h1>
+
+        <ul>
+            <% for(let i =0; i < fruits.length; i++){ %>
+                <li>
+                    <a href="/fruits/<%=i%>">
+                        <%=fruits[i].name%>
+                    </a>
+                <!--  ADD DELETE FORM HERE-->
+            <form action="/fruits/<%= i %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE" />
+            </form>
+                </li>
+            <% } %>
+        </ul>
+        <nav>
+            <a href="/fruits/new">Create a new fruit</a>
+        </nav>
+    </body>
+</html>

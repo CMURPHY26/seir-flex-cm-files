@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Fruit Page</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+    <h1>New Fruit page</h1>
+    <form action="/fruits" method="POST">
+    <!--  NOTE: action will be the route to redirect the user, method will be the HTTP verb-->
+    Name: <input type="text" name="name" /><br/>
+    Color: <input type="text" name="color" /><br/>
+    Is Ready To Eat: <input type="checkbox" name="readyToEat" /> <br/>
+    <input type="submit" name="" value="Create Fruit" />
+    </form>
+</body>
+</html>
