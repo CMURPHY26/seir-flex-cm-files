@@ -7,6 +7,7 @@ const methodOverride = require("method-override");
 //MODELS NOTE: it must start with ./ if it's just a file, not an NPM package
 let scientists = require("./models/scientists.js")
 
+
 //Tell express to use the middleware to process/access data
 //Load body parser middleware
 app.use(express.urlencoded({extended:true}));
@@ -19,16 +20,32 @@ app.get("/planet/new", (req, res) => {
     res.render("new.ejs");
 });
 
+
 //SHOW
 app.get("/planet/:id", (req, res) =>{
     res.render("show.ejs", {scientist: scientists[req.params.id]});
 });
+
+//EDIT
+app.get("/planet/:id/edit", (req, res) => {
+    res.render("edit.ejs", {scientist: scientists[req.params.id], id: req.params.id});
+});
+
+
+//UPDATE
+
+app.put("/planet/:id", (req, res) => {
+       scientists[req.params.id] = req.body;
+        res.redirect("/planet");
+})
+
 
 //DESTROY
 app.delete("/planet/:id", (req, res) => {
     scientists.splice(req.params.id, 1);
     res.redirect("/planet");
 });
+
 
 //CREATE
 app.post("/planet", (req, res) => {
@@ -46,13 +63,11 @@ app.delete("/planet/", (req, res) => {
     res.redirect("/planet");
 });
 
+
 //INDEX
 app.get("/planet", (req, res) => {
     res.render("index.ejs", {scientists: scientists});
 });
-
-
-
 
 
 app.listen(port, () => {
