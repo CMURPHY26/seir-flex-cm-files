@@ -1,3 +1,61 @@
 body {
   background: rgba(233, 244, 255 , 1);
 }
+
+.a {
+  height: 200px;
+  width: 100%;
+  background: red;
+}
+
+.b {
+  height: 400px;
+  width: 100%;
+  background: green;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.c, .d, .e {
+  height: 200px;
+  width: 30%;
+  background: blue;
+  margin: 0 1% 0 1%;
+}
+
+.f {
+  clear: both;
+  width: 100%;
+  height: 200px;
+  background: brown;
+}
+
+@media (min-width: 600px) {
+  .container {
+    width: 75%;
+    float: left;
+  }
+  .b {
+    width: 75%;
+    display: inline-block;
+    float: left;
+  }
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .f {
+    display: inline-block;
+    float: right;
+    width: 24%;
+  }
+
+
+};
