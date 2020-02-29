@@ -95,10 +95,10 @@ app.get("/seed", (req, res) => {
         shipIsBroken: false,},
         {title: 'Alien Meeting3',
         entry: 'Met aliens again on new planet',
-        shipIsBroken: false,},
+        shipIsBroken: true,},
         {title: 'Alien Meeting4',
         entry: 'Met aliens again on new planet',
-        shipIsBroken: false,},
+        shipIsBroken: true,},
     ], (err, createdLogs) => {
         res.redirect("/logs")
     })
