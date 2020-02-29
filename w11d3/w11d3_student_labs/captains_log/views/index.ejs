@@ -10,7 +10,7 @@
     <h5><a href="/logs/new">Add New Log Entry</a></h5>
     <ul>
         <% for(let i = 0; i < logs.length; i++) { %>
-            <li><%= logs[i].title %></li>
+            <li><a href="/logs/<%=logs[i].id%>"><%= logs[i].title %></a></li>
         <% } %>
     </ul>
 </body>

@@ -30,6 +30,7 @@ app.get("/logs/new", (req, res) => {
 //SHOW ROUTE
 app.get("/logs/:id", (req, res) => {
     Logs.findById(req.params.id, (err, logEntry) => {
+        console.log(logEntry)
         res.render("show.ejs", {log: logEntry});
     });
 });
