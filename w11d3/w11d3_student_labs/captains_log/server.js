@@ -27,6 +27,13 @@ app.get("/logs/new", (req, res) => {
 });
 
 
+//SHOW ROUTE
+app.get("/logs/:id", (req, res) => {
+    Logs.findById(req.params.id, (err, logEntry) => {
+        res.render("show.ejs", {log: logEntry});
+    });
+});
+
 //CREATE ROUTE
 app.post("/logs", (req, res) => {
     if(req.body.shipIsBroken === "on") {

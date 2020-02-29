@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captains Log Show</title>
+</head>
+<body>
+    <h1>Captain's Log Entry</h1>
+    <h5><a href="/logs">Back to the Captain''s Logs</a></h5>
+    <h2><%= log.title %></h2>
+    <h3><%= log.entry %></h3>
+        <% if(log.shipIsBroken === true) {%>
+            <h4>Ship is broken</h4>
+        <% } else { %>
+            <h4>Ship is intact</h4>
+        <% } %>
+</body>
+</html>
