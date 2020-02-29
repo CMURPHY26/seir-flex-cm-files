@@ -10,7 +10,7 @@ router.get("/new", (req, res) => {
 
 
 //SHOW ROUTE
-router.get("/logs/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     Logs.findById(req.params.id, (err, logEntry) => {
         // console.log(logEntry)
         res.render("show.ejs", {log: logEntry});
