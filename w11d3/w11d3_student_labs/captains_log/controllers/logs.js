@@ -9,6 +9,27 @@ router.get("/new", (req, res) => {
 });
 
 
+
+//SEED ROUTE
+router.get("/seed", (req, res) => {
+    Logs.create([
+        {title: 'Alien Meeting1',
+        entry: 'Met aliens',
+        shipIsBroken: false,},
+        {title: 'Alien Meeting2',
+        entry: 'Met aliens again on new planet',
+        shipIsBroken: false,},
+        {title: 'Alien Meeting3',
+        entry: 'Met aliens again on new planet',
+        shipIsBroken: true,},
+        {title: 'Alien Meeting4',
+        entry: 'Met aliens again on new planet',
+        shipIsBroken: true,},
+    ], (err, createdLogs) => {
+        res.redirect("/logs")
+    })
+});
+
 //SHOW ROUTE
 router.get("/:id", (req, res) => {
     Logs.findById(req.params.id, (err, logEntry) => {
@@ -66,30 +87,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-//SEED ROUTE
-router.get("/seed", (req, res) => {
-    Logs.create([
-        {title: 'Alien Meeting1',
-        entry: 'Met aliens',
-        shipIsBroken: false,},
-        {title: 'Alien Meeting2',
-        entry: 'Met aliens again on new planet',
-        shipIsBroken: false,},
-        {title: 'Alien Meeting3',
-        entry: 'Met aliens again on new planet',
-        shipIsBroken: true,},
-        {title: 'Alien Meeting4',
-        entry: 'Met aliens again on new planet',
-        shipIsBroken: true,},
-    ], (err, createdLogs) => {
-        res.redirect("/logs")
-    })
-});
 
-//ROOT ROUTE REDIRECT
-router.get("/", (req, res) => {
-    res.redirect("/logs");
-})
 
 
 
