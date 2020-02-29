@@ -30,10 +30,26 @@ app.get("/logs/new", (req, res) => {
 //SHOW ROUTE
 app.get("/logs/:id", (req, res) => {
     Logs.findById(req.params.id, (err, logEntry) => {
-        console.log(logEntry)
+        // console.log(logEntry)
         res.render("show.ejs", {log: logEntry});
     });
 });
+
+
+//EDIT/UPDATE ROUTE
+app.get("/logs/:id/edit", (req, res)=> {
+    Logs.findById(req.params.id, (err, logEntry) => {
+        res.render("edit.ejs", {log: logEntry,id: req.params.id});
+    })
+});
+
+//PUT/UPDATE ROUTE
+app.put("/logs/:id", (req, res) => {
+    Logs.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedLog) => {
+        res.redirect(`/logs/${req.params.id}`);
+    });
+});
+
 
 //CREATE ROUTE
 app.post("/logs", (req, res) => {
@@ -56,6 +72,12 @@ app.get("/logs", (req, res) => {
 });
 
 
+//DELETE ROUTE
+app.delete("/logs/:id", (req, res) => {
+    Logs.findByIdAndRemove(req.params.id, (err, deletedLog) =>{
+        res.redirect("/logs");
+    });
+});
 
 
 

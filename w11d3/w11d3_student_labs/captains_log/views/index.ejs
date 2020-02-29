@@ -10,7 +10,13 @@
     <h5><a href="/logs/new">Add New Log Entry</a></h5>
     <ul>
         <% for(let i = 0; i < logs.length; i++) { %>
-            <li><a href="/logs/<%=logs[i].id%>"><%= logs[i].title %></a></li>
+            <li>
+                <a href="/logs/<%=logs[i].id%>"><%= logs[i].title %></a>
+                <form action="/logs/<%=logs[i].id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE">
+                </form>
+                <a href="/logs/<%=logs[i].id%>/edit">EDIT</a>
+            </li>
         <% } %>
     </ul>
 </body>
