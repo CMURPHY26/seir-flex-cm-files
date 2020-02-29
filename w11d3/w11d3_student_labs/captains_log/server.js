@@ -35,10 +35,17 @@ app.post("/logs", (req, res) => {
         req.body.shipIsBroken = false;
     }
     Logs.create(req.body, (err, newLog) => {
-        console.log(newLog.id)
+        // console.log(newLog.id)
         res.redirect(`/logs/${newLog.id}`);
     });
-})
+});
+
+//INDEX ROUTE
+app.get("/logs", (req, res) => {
+    Logs.find({}, (err, allLogs) => {
+        res.render("index.ejs", {logs: allLogs});
+    })
+});
 
 
 

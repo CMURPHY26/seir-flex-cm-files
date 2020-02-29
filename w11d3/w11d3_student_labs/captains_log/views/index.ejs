@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captains Logs Homepage</title>
+</head>
+<body>
+    <h1>Captain's Logs</h1>
+    <h5><a href="/logs/new">Add New Log Entry</a></h5>
+    <ul>
+        <% for(let i = 0; i < logs.length; i++) { %>
+            <li><%= logs[i].title %></li>
+        <% } %>
+    </ul>
+</body>
+</html>
