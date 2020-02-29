@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const logSchema = new mongoose.Schema({
     title: String,
     entry: String,
-    shipIsBroken: {type:Boolean, default: true}
+    shipIsBroken: Boolean
 }, {timestamps: true});
 
-const Log = mongoose.Schema("Log", logSchema);
+const Log = mongoose.model("Logs", logSchema);
 
 module.exports = Log;

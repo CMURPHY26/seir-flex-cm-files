@@ -7,13 +7,13 @@ const methodOverride = require('method-override');
 //Load up mongoose npm as mongoose
 const mongoose = require('mongoose');
 
-//Connect mongoose to mongo db:
-//Mongo won't create fruitsdb until data added
-mongoose.connect('mongodb://localhost:27017/fruitsdb', { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/captainlogsdb', { useNewUrlParser: true, useUnifiedTopology: true});
 
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
 });
+
+const Logs = require("./models/logs.js");
 
 //MIDDLEWARE
 app.use(express.urlencoded({extended: true}));
@@ -34,7 +34,10 @@ app.post("/logs", (req, res) => {
      } else {
         req.body.shipIsBroken = false;
     }
-    res.send(req.body);
+    Logs.create(req.body, (err, newLog) => {
+        console.log(newLog.id)
+        res.redirect(`/logs/${newLog.id}`);
+    });
 })
 
 
