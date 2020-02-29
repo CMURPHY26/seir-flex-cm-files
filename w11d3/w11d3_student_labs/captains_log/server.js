@@ -79,6 +79,31 @@ app.delete("/logs/:id", (req, res) => {
     });
 });
 
+//SEED ROUTE
+app.get("/seed", (req, res) => {
+    Logs.create([
+        {title: 'Alien Meeting1',
+        entry: 'Met aliens',
+        shipIsBroken: false,},
+        {title: 'Alien Meeting2',
+        entry: 'Met aliens again on new planet',
+        shipIsBroken: false,},
+        {title: 'Alien Meeting3',
+        entry: 'Met aliens again on new planet',
+        shipIsBroken: false,},
+        {title: 'Alien Meeting4',
+        entry: 'Met aliens again on new planet',
+        shipIsBroken: false,},
+    ], (err, createdLogs) => {
+        res.redirect("/logs")
+    })
+});
+
+//ROOT ROUTE REDIRECT
+app.get("/", (req, res) => {
+    res.redirect("/logs");
+})
+
 
 
 
