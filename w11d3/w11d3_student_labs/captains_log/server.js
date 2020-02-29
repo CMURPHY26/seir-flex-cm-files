@@ -43,13 +43,6 @@ app.get("/logs/:id/edit", (req, res)=> {
     })
 });
 
-//PUT/UPDATE ROUTE
-app.put("/logs/:id", (req, res) => {
-    Logs.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedLog) => {
-        res.redirect(`/logs/${req.params.id}`);
-    });
-});
-
 
 //CREATE ROUTE
 app.post("/logs", (req, res) => {
@@ -61,6 +54,18 @@ app.post("/logs", (req, res) => {
     Logs.create(req.body, (err, newLog) => {
         // console.log(newLog.id)
         res.redirect(`/logs/${newLog.id}`);
+    });
+});
+
+//PUT/UPDATE ROUTE
+app.put("/logs/:id", (req, res) => {
+    if(req.body.shipIsBroken === "on") {
+        req.body.shipIsBroken = true;
+     } else {
+        req.body.shipIsBroken = false;
+    }
+    Logs.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedLog) => {
+        res.redirect(`/logs/${req.params.id}`);
     });
 });
 
