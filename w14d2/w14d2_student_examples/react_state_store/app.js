@@ -1,21 +1,48 @@
 
 console.log(products);
 
+
+class Greeter extends React.Component {
+    render() {
+        return (
+            <h1>Hi there {this.props.name}!</h1>
+        )
+    }
+
+}
+
+
 class App extends React.Component {
+    //OLD Syntax but need to manage legacy code
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         products: products,
+    //         name: "Ira"
+    //     };
+    // }
+
+
+    //New Method much easier
+    state = {
+        products: products,
+        name: "Ira"
+    }
+
     render() {
         return (
             <div>
-                <h1>Hi there!</h1>
-                {products.map( (product) => {
+                <Greeter name={this.state.name}/>
+                <ul>
+                {this.state.products.map( (product) => {
                     return(
-                    <div>
-                        <h2>{product.name}</h2>
-                        <h3>{product.price}</h3>
-                        <h4>{product.description}</h4>
-                    </div>
+                    <li>
+                        {product.name} {product.price}
+                    </li>
                     )
                 }
                 )}
+                </ul>
             </div>
         )
     }
