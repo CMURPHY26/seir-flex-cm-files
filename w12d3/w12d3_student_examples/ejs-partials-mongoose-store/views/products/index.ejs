@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../partials/nav.ejs %>
+    <div class="container">
+      <h2>Check Out All The Glorious Wares</h2>
+      <div class="products">
+        <% products.forEach( function (product) { %>
+          <div class="card">
+            <h5> <%= product.name  %></h5>
+            <a href="/products/<%=product.id%>">
+              <img src="<%= product.img %>" alt="An image of <%= product.name %>" /></a>
+              <h6>Price: $<%=product.price %></h6>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+    <% include ../partials/footer.ejs %>
+  </body>
+</html>

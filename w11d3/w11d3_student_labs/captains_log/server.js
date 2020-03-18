@@ -22,15 +22,15 @@ app.use(methodOverride("_method"));
 app.use("/logs", logsController);
 
 
-// //ROOT ROUTE REDIRECT
-// app.get("/", (req, res) => {
-//     res.redirect("/logs");
-// })
+//ROOT ROUTE REDIRECT
+app.get("/", (req, res) => {
+    res.redirect("/logs");
+})
 
-// //WILDCARD ROUTE REDIRECT
-// app.get("*", (req, res) => {
-//     res.redirect("/logs");
-// })
+//WILDCARD ROUTE REDIRECT
+app.get("*", (req, res) => {
+    res.redirect("/logs");
+})
 
 app.listen(port, ()=> {
     console.log("server is running on port", port);
