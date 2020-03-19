@@ -1,49 +1,99 @@
-const receipt1 =
-  {
-    person: 'Karolin',
-    order: {
-      main: 'Burrito',
-      protein: 'Organic Tofu',
-      rice: 'Purple Rice',
-      sauce: 'Green Crack',
-      toppings: [
-        'Baby Bok Choy', 'Cucumber Kimchi'
-      ],
-      drink: 'Korchata',
-      cost: 22
+// const receipt1 =
+//   {
+//     person: 'Karolin',
+//     order: {
+//       main: 'Burrito',
+//       protein: 'Organic Tofu',
+//       rice: 'Purple Rice',
+//       sauce: 'Green Crack',
+//       toppings: [
+//         'Baby Bok Choy', 'Cucumber Kimchi'
+//       ],
+//       drink: 'Korchata',
+//       cost: 22
+//     },
+//     paid: false
+//   }
+// const receipt2 = {
+//   person: 'Jerrica',
+//   order: {
+//     main: 'Rice Bowl',
+//     protein: 'Ginger Soy Chix',
+//     rice: 'Sticky Rice',
+//     sauce: 'Korilla',
+//     toppings: [
+//       'Yuzu Pickled Sweet Pepper', 'Kale'
+//     ],
+//     drink: 'Korchata',
+//     cost: 19
+//   },
+//   paid: false
+// }
+// const receipt3 = {
+//   person: 'Matt',
+//   order: {
+//     main: 'Salad Bowl',
+//     protein: 'Organic Tofu',
+//     rice: 'none',
+//     sauce: "K'lla",
+//     toppings: [
+//       'Blue Potato Salad', 'Pico De Gallo', 'Red Kimchi'
+//     ],
+//     drink: 'Sparkling Blood Orange Soda',
+//     cost: 20
+//   },
+//   paid: true
+// }
+
+//Dynamic Rendering
+const receipts = [
+    {
+      person: 'Karolin',
+      order: {
+        main: 'Burrito',
+        protein: 'Organic Tofu',
+        rice: 'Purple Rice',
+        sauce: 'Green Crack',
+        toppings: [
+          'Baby Bok Choy', 'Cucumber Kimchi'
+        ],
+        drink: 'Korchata',
+        cost: 22
+      },
+      paid: false
     },
-    paid: false
-  }
-const receipt2 = {
-  person: 'Jerrica',
-  order: {
-    main: 'Rice Bowl',
-    protein: 'Ginger Soy Chix',
-    rice: 'Sticky Rice',
-    sauce: 'Korilla',
-    toppings: [
-      'Yuzu Pickled Sweet Pepper', 'Kale'
-    ],
-    drink: 'Korchata',
-    cost: 19
-  },
-  paid: false
-}
-const receipt3 = {
-  person: 'Matt',
-  order: {
-    main: 'Salad Bowl',
-    protein: 'Organic Tofu',
-    rice: 'none',
-    sauce: "K'lla",
-    toppings: [
-      'Blue Potato Salad', 'Pico De Gallo', 'Red Kimchi'
-    ],
-    drink: 'Sparkling Blood Orange Soda',
-    cost: 20
-  },
-  paid: true
-}
+    {
+      person: 'Mark',
+      order: {
+        main: 'Rice Bowl',
+        protein: 'Ginger Soy Chix',
+        rice: 'Sticky Rice',
+        sauce: 'Korilla',
+        toppings: [
+          'Yuzu Pickled Sweet Pepper', 'Kale'
+        ],
+        drink: 'Korchata',
+        cost: 19
+      },
+      paid: false
+    },
+    {
+      person: 'Matt',
+      order: {
+        main: 'Salad Bowl',
+        protein: 'Organic Tofu',
+        rice: 'none',
+        sauce: "K'lla",
+        toppings: [
+          'Blue Potato Salad', 'Pico De Gallo', 'Red Kimchi'
+        ],
+        drink: 'Sparkling Blood Orange Soda',
+        cost: 20
+      },
+      paid: true
+    }
+  ];
+  
 
 class Receipt extends React.Component {
     render() {
@@ -66,17 +116,29 @@ class Receipt extends React.Component {
 
 class App extends React.Component {
     state = {
-        receipt1: receipt1,
-        receipt2: receipt2,
-        receipt3: receipt3
+        // receipt1: receipt1,
+        // receipt2: receipt2,
+        // receipt3: receipt3
+        // Dynamic Rendering
+        receipts: receipts
+    }
+
+    handleReceiptClick = () => {
+        console.log("Clicked!");
+            this.setState();
     }
 
     render() {
         return (
             <div className="app">
-                {!this.state.receipt1.paid ? <Receipt receipt={this.state.receipt1} /> : null}
-                {!this.state.receipt2.paid ?<Receipt receipt={this.state.receipt2} /> : null}
-                {!this.state.receipt3.paid ? <Receipt receipt={this.state.receipt3} /> : null}
+                {this.state.receipts.map(receipt => {
+                    return (!receipt.paid ? 
+                    (<div onClick={this.handleReceiptClick}>    
+                    <Receipt receipt={receipt} /> 
+                    </div>)
+                    : null)
+                })
+                }
             </div>
         )
     }
