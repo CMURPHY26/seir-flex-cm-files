@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.app {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.receipt {
+    border: 1px solid red;
+    padding: 20px;
+}
+
+.receipt > ul {
+    list-style-type: none;
+}
