@@ -125,7 +125,7 @@ class App extends React.Component {
 
     handleReceiptClick = () => {
         console.log("Clicked!");
-            this.setState();
+            this.setState({paid = true});
     }
 
     render() {
@@ -134,7 +134,7 @@ class App extends React.Component {
                 {this.state.receipts.map(receipt => {
                     return (!receipt.paid ? 
                     (<div onClick={this.handleReceiptClick}>    
-                    <Receipt receipt={receipt} /> 
+                    <Receipt receipt={receipt} paid={receipt.paid}/> 
                     </div>)
                     : null)
                 })
