@@ -1,39 +1,5 @@
 
-class Div1 extends React.Component {
-    render() {
-        return (
-            <div>
-                <Div2 tardis={this.props.tardis} 
-        handleCaseToggle={this.props.handleCaseToggle}/>
-            </div>
-        )
-    }
-}
-
-class Div2 extends React.Component {
-    render() {
-        return (
-            <div>
-            <Div3 tardis={this.props.tardis} 
-        handleCaseToggle={this.props.handleCaseToggle}/>
-            <Div3 tardis={this.props.tardis} 
-        handleCaseToggle={this.props.handleCaseToggle}/>
-        </div>
-        )
-    }
-}
-
 class Div3 extends React.Component {
-    render() {
-        return (
-            <div>
-                <h3 onClick={ () => this.props.handleCaseToggle(this.props.tardis.name)} > { this.props.tardis.name}</h3>
-            </div>
-        )
-    }
-}
-
-class App extends React.Component {
     state = {
         tardis: {
             name: 'Time and Relative Dimension in Space',
@@ -42,7 +8,7 @@ class App extends React.Component {
     }
 
     changeIt = (text) => {
-        console.log("App - changeIt - name", text);
+        console.log("Div 3 - changeIt - name", text);
 
         if(this.state.tardis.caps) {
             this.setState({
@@ -62,13 +28,45 @@ class App extends React.Component {
 
     }
 
+
     render() {
-        console.log(this.state);
+        return (
+            <div>
+                <h3 tardis={this.state.tardis} onClick={() => {this.changeIt(this.state.tardis.name)}}> { this.state.tardis.name}</h3>
+            </div>
+        )
+    }
+}
+
+class Div2 extends React.Component {
+    render() {
+        return (
+            <div>
+            <Div3 />
+            <Div3 />
+        </div>
+        )
+    }
+}
+
+
+class Div1 extends React.Component {
+    render() {
+        return (
+            <div>
+                <Div2 />
+            </div>
+        )
+    }
+}
+
+
+class App extends React.Component {
+
+    render() {
         return(
         <div>
-        <Div1 
-        tardis={this.state.tardis} 
-        handleCaseToggle={this.changeIt} />
+        <Div1 />
         </div>
         )
     }
