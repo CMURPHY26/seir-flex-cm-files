@@ -18,7 +18,19 @@ if (process.env.NODE_ENV === 'development') {
 
 console.log('current base URL:', baseURL)
 
+fetch(baseURL+ '/holidays')
+  .then(data => {
+    return data.json()},
+    err => console.log(err))
+  .then(parsedData => console.log(parsedData),
+   err => console.log(err))
+
+
 class App extends React.Component {
+  state = {
+    holidays: []
+  }
+
  render () {
    return (
      <div className='container'>
