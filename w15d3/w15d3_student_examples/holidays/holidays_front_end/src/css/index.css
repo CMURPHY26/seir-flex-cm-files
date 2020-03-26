@@ -1,0 +1,94 @@
+
+/** {
+  border: 1px solid teal;
+}*/
+
+h5, h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+}
+
+table , form {
+  max-width: 30%;
+  margin:auto;
+}
+
+td:first-child:hover{
+  cursor: pointer;
+}
+
+td:last-child:hover{
+  color: #ff5252;
+  cursor: pointer;
+}
+
+.celebrated {
+  opacity: 0.3;
+  font-style: italic;
+}
+
+img {
+  max-height : 1em;
+}
+
+img:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+}
+
+.dim {
+  background: grey;
+}
+
+/****************************************************
+* Modals
+****************************************************/
+
+.modal {
+  background-image: url('../images/memphis-colorful.png');
+  position: fixed;
+  margin: 0 10vw;
+  padding-top: 3em;
+  top: 3em;
+  left: 0;
+  height: 90%;
+  width: 90%;
+  z-index: 2;
+  overflow: auto;
+  display : none;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 10px;
+}
+
+
+.details {
+
+  background: #fafafa;
+  width: 25%;
+  position: fixed;
+  top: 10em;
+  right: 0;
+  z-index: 1;
+  padding: 1em 1em 0;
+  border-radius: 10px  0 0 10px ;
+}
+
+h3, span {
+  color: #888;
+}
+
+.edit {
+  display: block;
+}
+.button-red {
+  background-color: #ff5252;
+}
