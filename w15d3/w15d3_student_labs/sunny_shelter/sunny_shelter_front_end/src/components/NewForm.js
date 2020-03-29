@@ -9,7 +9,7 @@ class NewForm extends React.Component{
         image: 'http://www.citydogshare.org/assets/default_dog-f1f5e5aa031ad0a956a936dc4fb4bde95c712f2ad1f99e883b5bc58d22aec668.jpg',
         age: 1,
         adopted: false,
-        personalityTraits: ['playful', 'fun']
+        personalityTraits: []
     }
 
     // handleChange = (event) => {
