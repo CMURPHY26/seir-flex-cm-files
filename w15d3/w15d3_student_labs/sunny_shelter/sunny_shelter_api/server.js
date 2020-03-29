@@ -6,6 +6,7 @@ const PORT = process.env.PORT;
 const cors = require('cors')
 
 
+const usersController = require("./controllers/users.js");
 const animalsController = require("./controllers/animals.js");
 
 //MONGO/MONGOOSE CONNECTION
@@ -20,8 +21,8 @@ mongoose.connect('mongodb://localhost:27017/animals', { useNewUrlParser: true, u
 
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...')
-})
-
+  })
+  
 
 
 // middleware
@@ -45,6 +46,7 @@ app.use(cors());
 // Note: all routes are now exposed. If you want to limit access for specific verbs like POST or DELETE you can look at the npm documentaion for cors (for example with OMDB - it's ok for anyone to see the movies, but you don't want just anyone adding a movie)
 
 app.use("/animals", animalsController);
+app.use("/users", usersController);
 
 
 app.listen(PORT, () => {
