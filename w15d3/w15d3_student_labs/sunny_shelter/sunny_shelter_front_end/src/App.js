@@ -50,8 +50,15 @@ class App extends React.Component {
     })
   }
 
-  handleOfficialAdoption = (animal) => {
-    // fetch(baseURL + '/animals/' +)
+  handleOfficialAdoption = (id) => {
+    fetch(baseURL + '/animals/' + id, {
+      method: "DELETE",
+    }).then(res => {
+      const animalArr = this.state.animals.filter( animal => {
+        return animal._id !== id
+      })
+      this.setState({animals: animalArr})
+    })
   }
 
   componentDidMount() {
@@ -71,12 +78,17 @@ class App extends React.Component {
               return(
                 <tr key={animal._id}>
                   <td>{animal.name}</td>
-                  <td><button onClick={()=>this.handleAdoptionToggle(animal)}>
-                  {!animal.adopted ? "Pending Adoption" : "Adopted"}
-                  </button></td>
-                  <td><button onClick={()=>this.handleOfficialAdoption(animal)}>
-                  Officially Adopted
-                  </button></td>
+                  <td>
+                    <button onClick={()=>this.handleAdoptionToggle(animal)}>
+                    {!animal.adopted ? "Pending Adoption" : "Adopted"}
+                    </button>
+                  </td>
+                  <td>
+                    <button onClick={()=>this.handleOfficialAdoption(animal._id)}>
+                    Officially Adopted
+                    </button>
+                  </td>
+                  <td><button></button></td>
                 </tr>
               )
             })}
