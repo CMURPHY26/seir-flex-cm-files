@@ -21,6 +21,25 @@
   }
 }
 
+
+
+.modal {
+  background: rgba(0,0,0,.9);
+  position: fixed;
+  margin: 0 1em;
+  padding-top: 1em;
+  top: 1em;
+  left: 0;
+  height: 90%;
+  width: 100%;
+  z-index: 1;
+  overflow: auto;
+  display : none;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 10px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

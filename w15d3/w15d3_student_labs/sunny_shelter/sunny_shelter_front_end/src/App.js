@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import NewForm from './components/NewForm';
+import UpdateForm from './components/UpdateForm'
 
 let baseURL = 'http://localhost:3003';
 
@@ -9,7 +10,8 @@ let baseURL = 'http://localhost:3003';
 
 class App extends React.Component {
   state = {
-    animals: []
+    animals: [],
+    animal: null
   }
 
   getAnimals = () => {
@@ -50,6 +52,20 @@ class App extends React.Component {
     })
   }
 
+  handleUpdateAnimal = (animal) => {
+    const copyAnimals = [...this.state.animals]
+          const findIndex = this.state.animals.findIndex(animalIndex => animalIndex._id === animal._id)
+          copyAnimals[findIndex] = animal
+          this.setState({animals: copyAnimals})
+  }
+
+  handleSelectAnimal = (animal) => {
+    this.setState({animal: animal}, () => {
+      document.querySelector('.modal').style.display = 'block'
+    })
+    
+  }
+
   handleOfficialAdoption = (id) => {
     fetch(baseURL + '/animals/' + id, {
       method: "DELETE",
@@ -88,12 +104,20 @@ class App extends React.Component {
                     Officially Adopted
                     </button>
                   </td>
-                  <td><button></button></td>
+                  <td><button onClick={() => {
+                    this.handleSelectAnimal(animal)
+                  }}>Edit</button></td>
                 </tr>
               )
             })}
           </tbody>
         </table>
+        {this.state.animal ? 
+        <div className="modal">
+          <UpdateForm animal={this.state.animal} baseURL={baseURL} handleUpdateAnimal={this.handleUpdateAnimal}/>
+        </div> : 
+        null
+        }
       </div>
     );
   }
