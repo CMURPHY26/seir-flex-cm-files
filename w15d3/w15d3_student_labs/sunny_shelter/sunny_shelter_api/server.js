@@ -2,12 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
-const PORT = process.env.PORT;
+const session = require("express-session");
+const PORT = process.env.PORT || process.env.LOCALPORT;
 const cors = require('cors')
 
 
 const usersController = require("./controllers/users.js");
 const animalsController = require("./controllers/animals.js");
+const sessionsController = require("./controllers/sessions.js");
 
 //MONGO/MONGOOSE CONNECTION
 //...farther down the page
@@ -44,9 +46,18 @@ const corsOptions = {
 
 app.use(cors()); 
 // Note: all routes are now exposed. If you want to limit access for specific verbs like POST or DELETE you can look at the npm documentaion for cors (for example with OMDB - it's ok for anyone to see the movies, but you don't want just anyone adding a movie)
+app.use(session({
+  secret: process.env.SECRET, //some random string
+  resave: false,
+  saveUninitialized: false
+}));
 
-app.use("/animals", animalsController);
 app.use("/users", usersController);
+app.use("/sessions", sessionsController);
+app.use("/animals", animalsController);
+
+
+const User =  require("./models/user.js");
 
 
 app.listen(PORT, () => {
