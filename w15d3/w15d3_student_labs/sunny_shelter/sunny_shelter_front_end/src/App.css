@@ -23,7 +23,7 @@
 
 
 
-.modal {
+.modal, .LoginModal, .RegModal {
   background: rgba(0,0,0,.9);
   position: fixed;
   margin: 0 1em;

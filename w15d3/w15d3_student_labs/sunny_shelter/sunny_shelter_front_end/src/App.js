@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import NewForm from './components/NewForm';
 import UpdateForm from './components/UpdateForm'
+import RegisterForm from './components/RegisterForm'
+import LoginForm from './components/LoginForm'
 
 let baseURL = 'http://localhost:3003';
 
@@ -11,7 +13,8 @@ let baseURL = 'http://localhost:3003';
 class App extends React.Component {
   state = {
     animals: [],
-    animal: null
+    animal: null,
+    currentUser: null
   }
 
   getAnimals = () => {
@@ -63,7 +66,14 @@ class App extends React.Component {
     this.setState({animal: animal}, () => {
       document.querySelector('.modal').style.display = 'block'
     })
-    
+  }
+
+  handleLoginModal = () => {
+    document.querySelector('.LoginModal').style.display = "block"
+  }
+
+  handleRegisterModal = () => {
+    document.querySelector('.RegModal').style.display = "block"
   }
 
   handleOfficialAdoption = (id) => {
@@ -86,8 +96,11 @@ class App extends React.Component {
       <div className="App">
         <header>
             <h1>Sunny Philadelphia Animal Shelter</h1>
+            <button className="Register" onClick={() => this.handleRegisterModal()}>Register</button>
+            <button className="Login" onClick={() => this.handleLoginModal()}>Login</button>
         </header>
         <NewForm baseURL={baseURL} handleAddAnimal={this.handleAddAnimal}/>
+        <h2>Animals</h2>
         <table>
           <tbody>
             {this.state.animals.map(animal => {
@@ -118,6 +131,12 @@ class App extends React.Component {
         </div> : 
         null
         }
+        <div className="LoginModal">
+          <LoginForm baseURL={baseURL}/>
+        </div>
+        <div className="RegModal">
+          <RegisterForm baseURL={baseURL}/>
+        </div>
       </div>
     );
   }
