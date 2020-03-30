@@ -7,8 +7,8 @@ const PORT = process.env.PORT || process.env.LOCALPORT;
 const cors = require('cors')
 
 
-const usersController = require("./controllers/users.js");
 const animalsController = require("./controllers/animals.js");
+const usersController = require("./controllers/users.js");
 const sessionsController = require("./controllers/sessions.js");
 
 //MONGO/MONGOOSE CONNECTION
@@ -52,9 +52,9 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.use("/animals", animalsController);
 app.use("/users", usersController);
 app.use("/sessions", sessionsController);
-app.use("/animals", animalsController);
 
 
 const User =  require("./models/user.js");
