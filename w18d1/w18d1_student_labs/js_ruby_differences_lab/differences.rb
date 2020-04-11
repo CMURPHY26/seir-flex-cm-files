@@ -157,3 +157,56 @@
 #     p "#{fibs[fibs.length - 1]} is the fibonacci number as position #{num}"
 # end
 # nth_fibonacci_number
+
+
+
+
+# Search Array
+# Write a method that searches through an array for a value and returns true or false depending on whether or not the value is present in the array. Here is the javascript:
+
+# const searchArray = (array, value) => {
+#   for(let i = 0; i < array.length-1; i++) {
+#     if(array[i] == value) {
+#       return true;
+#       break;
+#     }
+#   }
+#   return -1;
+# };
+
+# def search_array (array, value) 
+#     if array.detect { |i| i == value }
+#         return true
+#     else
+#         return false
+#     end
+# end
+
+# p search_array([1,3,5,10,15], 12)
+
+# p search_array([0.3, "three", :three, "thirty-three"], "three")
+
+
+# Palindrome
+# Write a method that checks whether or not a string is a palindrome. Here is the javascript:
+
+# const isPalindrome = (str) => {
+#   for(let i = 0; i < str.length/2; i++){
+#     if(str[i] != str[str.length-i-1]){
+#       return false;
+#       break;
+#     }
+#   }
+#   return true;
+# };
+
+# def is_palindrome (str) 
+#     if str == str.reverse
+#         return true
+#     else
+#         return false
+#     end
+# end
+
+# p is_palindrome("racecar")
+
