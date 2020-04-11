@@ -34,7 +34,7 @@ class App extends React.Component {
   // store the data made via fetch
   state = {
     holidays: [],
-    // holiday: {}
+    holiday: null
   }
 
   getHoliday = (holiday) => {
