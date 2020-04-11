@@ -104,10 +104,11 @@
 # }
 # bar(foo)
 
-foo = Proc.new do
-    puts 'hi'
-end
-def bar(callback)
-    callback.call()
-end
-bar(foo);
+# foo = Proc.new do
+#     puts 'hi'
+# end
+# def bar(callback)
+#     callback.call()
+#     #or callback.()
+# end
+# bar(foo);
