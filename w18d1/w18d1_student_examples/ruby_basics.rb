@@ -160,4 +160,102 @@
 # Conversion
 # With Ruby, we can easily convert between data types:
 
-p '4'.to_i #to integer
+# p '4'.to_i #to integer
+# p 4.to_s #to string
+# p 5.to_f #to float
+# p 0.5.to_r #to rational
+# p "Jane".to_sym #to symbol
+
+
+
+# Methods
+# In Ruby, methods are not objects like they are in JavaScript:
+#  def h 
+#     puts 'Hello World!'
+#  end
+
+#  h()
+#  h
+#  p h.class # NilClass
+
+#with params:
+# def h (name)
+#     puts "Hello #{name}"
+# end
+
+# h("Matt")
+# h "Matt"
+
+
+#Control Flow
+# If/Else
+# In Ruby, we do not need parentheses for our truth conditions, and we spell elsif a little differently than in JavaScript:
+
+# a = 5
+
+# if a > 1
+#     p 'greater than 1'
+# elsif a == 1
+#     p 'equals 1'
+# else
+#     p 'less than 1'
+# end
+
+
+# We can also use opposite truth conditions:
+# a = 5
+# unless a >= 1
+# 	p "less than 1"
+# end
+
+
+# We can also write Ruby conditionals on one line:
+# a = 1
+# puts 'equals 1' if a == 1
+# puts 'not greater than 1' unless a > 1
+
+
+# While
+# a = 0
+# while a < 5 do
+# 	p a
+# 	a+=1 # ++ does not exist. must do +=1 or another increment number
+# end
+
+# The while equivalent of unless is until. Just give it a stop condition like below:
+
+# a = 0
+# until a == 5 do
+# 	p a
+# 	a+=1
+# end
+
+
+# For
+# for i in 0...5 do
+# 	puts i
+# end
+
+# str = "Chris"
+
+# if str.length > 10
+#     p "too long"
+# elsif str.length >=5 && str.length <=10
+#     p "just right"
+# else 
+#     p "too short"
+# end
+
+# for i in 0..10 do 
+#     p "#{i} times through"
+# end
+
+# a = 0
+# until a > 10 do
+#     p "#{a} times through"
+#     a += 1
+# end
+
+# for i in 20..40 do
+#     p i
+# end
