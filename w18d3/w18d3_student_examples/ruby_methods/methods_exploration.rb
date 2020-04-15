@@ -271,3 +271,132 @@ p "gsub! performs substitutions in place and mutates the original string: #{gsub
 # sports_teams = ['Red Sox', ['baseball', 'Boston'], 'Rangers', ['hockey', 'New York']]
 # p sports_teams.join("-")
 # # => "Red Sox-baseball-Boston-Rangers-hockey-New York"
+
+################################################################################
+
+# Reduce Method:
+# Used to take an array and reduce to a single value.
+# With two parameters in the method (|sum, num|), the first param "sum"
+# is the total to be returned. The second param "num", is the current
+# number. We are telling the method to add those two params each time we
+# iterate through.
+# To find sum of numbers in array example:
+# def sum(array)
+#   sum = 0
+#   array.each do |number|
+#     sum += number
+#   end
+#   return sum
+# end
+# p sum([1, 7, 10])
+# # => 18
+# Using reduce method example:
+# def sum(array)
+#   array.reduce(0) { |sum, num| sum + num }
+# end
+# p sum([1, 7, 10])
+# # => 18
+# (0) sets initial value, if value is not set it will default to zero.
+# The sum increases from 0 -> 1 -> 7 -> 10 which will give us 18.
+
+
+################################################################################
+
+
+# # Integers / Topic
+# # even?_odd? / Method
+# # We will use .even? and .odd? to check if integers are even or odd and print a boolean to console. / Notes
+# # even? returns true if integer is an even number.
+# numOne = 2304871
+# numTwo = 12487
+# numThree = 66
+# numFour = 1864
+# puts numOne.even?
+# puts numTwo.even?
+# puts numThree.even?
+# puts numFour.even?
+# # false
+# # false
+# # true
+# # true
+# # odd? returns true if integer is an odd number.
+# numFive = 6771249
+# numSix = 124
+# numSeven = 1243814
+# numEight = 33
+# puts numFive.odd?
+# puts numSix.odd?
+# puts numSeven.odd?
+# puts numEight.odd?
+# # true
+# # false
+# # false
+# true
+
+################################################################################
+
+# KEYS Hash Method
+
+# my_hash = { 
+#  "Avengers" => "captain America", 
+#  "Marvel" => "Wonder Woman", 
+# "Secret Life of Pets" => "Snowball" 
+# } 
+# puts my_hash.keys returns
+# Avengers
+# Marvel
+# Secret Life of Pets
+# #new syntax for Hash
+# my_hash = { 
+# avengers: "captain America", 
+# marvel: "Wonder Woman", 
+# secretLifeofPets: "Snowball"
+# } 
+# puts my_hash.keys
+
+################################################################################
+
+# Integer
+# Times
+# Using .times will loop over the function that follows it a set number of times.
+# 5.times {puts "hi"}
+# # You can also use a parameter to know which iteration number has run.
+# hello = “greeting”
+# 4.times {|i| puts "This is #{hello} ##{i}"}
+# a = 12
+# b = 4
+# 2.times {puts a + b}
+# puts 16 twice
+
+##################################################################################
+# Floor/Next
+# Floor
+# Returns the largest number less than or equal to int with a precision of ndigits decimal digits (default: 0).
+# When the precision is negative, the returned value is an integer with at least ndigits.abs trailing zeros.
+# Returns self when ndigits is zero or positive.
+# Next
+# Returns the successor of int, i.e. the Integer equal to int+1.
+# Ex: code
+# #sets variables
+# num1 = 1.48950
+# num2 = 2.547389
+# num3 = 12_345_678.3874
+# num4 = 1
+# num5 = 28
+# num6 = 12_345_678
+# #shortens number to specified number of decimals. 
+# #if a negative number is specified, that many digits of the integer change to zero.
+# puts num1.floor(3)
+# puts num2.floor(5)
+# puts num3.floor(-2)
+# #accepts whole numbers and adds 1
+# puts num4.next()
+# puts num5.next()
+# puts num6.next()
+# Output: 
+# 1.489
+# 2.54738
+# 12345600
+# 2
+# 29
+# 12345679
