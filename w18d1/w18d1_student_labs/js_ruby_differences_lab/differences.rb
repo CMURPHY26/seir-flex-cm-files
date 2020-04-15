@@ -210,3 +210,20 @@
 
 # p is_palindrome("racecar")
 
+def fizzbuzz(n)
+    fb_array = []
+    for i in 1..n do
+        if i % 15 == 0
+            fb_array.push("FizzBuzz")
+        elsif i % 3 == 0
+            fb_array.push("Fizz")
+        elsif i % 5 == 0
+            fb_array.push("Buzz")
+        else
+            fb_array.push(i)
+        end
+    end
+   return fb_array
+end
+
+p fizzbuzz(100)
