@@ -1,8 +1,4 @@
-# planets = %w(Mercury Venus Earth Mars Jupiter Saturn Uranus Pluto)
 
-# planets.each do |planet|
-#   p planet if planet.length > 5
-# end
 
 # "Chris Murphy".class.superclass
 
@@ -61,45 +57,51 @@ class World
     # if you want a getter and setter in one you can replace the above with
     attr_accessor :shape
   
+    attr_reader :people
+  
   
     # runs when object instance is created
     def initialize name, shape="oblate spheroid"
       @name = name
       @shape = shape
       @people = []
+      @hip_hop_name = "DJ #{@name}"
     end
     #getter - retrieves name
     def name
       @name
     end
   
-    def people 
-      @people
-    end
+    # def people 
+    #   @people
+    # end
     #setter -  sets name
     def name=planet_name
       @name = planet_name
     end
   
-    def populate
+    def populate name, age
       # << shovel operator substitutes push() that shovels things on to an array
-      @people << { name: "Shrimpy McShrimsky", age: 20}
+      @people << { name: name, age: age}
     end
   
   end
   
-  world1 = World.new "Panthalassa"
-  world2 = World.new "Tatooine" , "sphere"
-  world3 = World.new "Nothing But Shrimp" , "dome"
-  world4 = World.new "San Junipero", "cylinder"
+  # world1 = World.new "Panthalassa"
+  # world2 = World.new "Tatooine" , "sphere"
+  # world3 = World.new "Nothing But Shrimp" , "dome"
+  # world4 = World.new "San Junipero", "cylinder"
   
-  p world1.shape
-  world1.shape = "cube"
-  p world1.shape
-  p world1
-  p world2
-  p world3
-  p world4
+  # p world1.shape
+  # world1.shape = "cube"
+  # p world1.shape
+  # world1.populate "Chris", 24
+  # world1.populate "Tara", 21
+  # world1.populate "Ira", 43
+  # p world1.people
+  # p world2
+  # p world3
+  # p world4
   
   
   
@@ -138,3 +140,40 @@ class World
   # Galaxy.populate
   # Galaxy.populate
   # p Galaxy.people
+  
+  
+  # planets = %w(Mercury Venus Earth Mars Jupiter Saturn Uranus Pluto)
+  # # populate milky way with worlds from our planets array
+  # milky_way = []
+  
+  # planets.each do |planet|
+  #   world = World.new planet
+  #   milky_way << world
+  # end
+  
+  # p milky_way
+  
+  
+  #--------------------------------
+  # Calling Methods on a Class
+  
+  class Mathy
+    def self.formula_1 (a, b, c)
+       a + b * c
+     end
+    def self.subtract_and_divide a , b, c
+      (a - c ) / b
+    end
+  
+    def self.powers_of_3 a
+       a * a * a / 3
+    end
+  end
+  
+  
+  Mathy.formula_1 5, 2, 7
+  Mathy.subtract_and_divide 5 ,2, 7
+  Mathy.powers_of_3 3
+  
+  # mathy = Mathy.new
+  # mathy.formula_1 5 ,2, 7
