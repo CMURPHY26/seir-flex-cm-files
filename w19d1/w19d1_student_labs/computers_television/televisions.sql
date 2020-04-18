@@ -8,7 +8,7 @@
     DROP TABLE tv_models;
 
 -- Create a televisions table
-    CREATE TABLE televisions (id serial, model_name varchar(20), screen_size int, resolution int, price int, release_date varchar(20), photo_url varchar(100));
+    CREATE TABLE televisions (id serial, model_name varchar(20), screen_size int, resolution int, price int, release_date timestamp, photo_url varchar(100));
 
 --  The table should have id, model_name, screen_size, resolution,
 --  price, release_date, photo_url
