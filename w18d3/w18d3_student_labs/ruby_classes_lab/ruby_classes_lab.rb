@@ -69,58 +69,101 @@
 # p bird1.adjective
 
 
-# 3. Inheritance
 
-class Dessert
-    attr_accessor :name
-    attr_accessor :sugar_content
-    def initialize name, sugar_content
-        @name = name
-        @sugar_content = sugar_content
+#############################################################
+# # 3. Inheritance
+
+# class Dessert
+#     attr_accessor :name
+#     attr_accessor :sugar_content
+#     def initialize name, sugar_content
+#         @name = name
+#         @sugar_content = sugar_content
+#     end
+
+#     def eat
+#         name = self.name
+#         p "Yum! This #{name} is sooooo delicious!"
+#     end
+# end
+
+# class Pie < Dessert
+
+# end
+
+# class DeepFriedDessert < Dessert
+#     def name
+#         super
+#     end
+#     def sugar_content
+#         super
+#     end
+#     def eat
+#         name = self.name
+#         p "Yum! This #{name} is sooo...ack! ugh! *heart-attack*"
+#     end
+# end
+
+# class IceCream < Dessert
+#     attr_accessor :toppings
+#     def name
+#         super
+#     end
+#     def sugar_content
+#         super
+#     end
+# end
+
+# apple_pie = Pie.new "apple pie", "400g"
+# p apple_pie
+# apple_pie.eat
+
+# fried_bananas = DeepFriedDessert.new "fried bananas", "200g"
+# p fried_bananas
+# fried_bananas.eat
+
+# chocolate_ice_cream = IceCream.new "chocolate", "100g"
+# p chocolate_ice_cream
+# chocolate_ice_cream.toppings = "sprinkles"
+# p chocolate_ice_cream
+
+
+
+#############################################################
+# Universe Part One
+# What's in a Class? A class can contain any number of variables and any number of methods. That is, any number of things and any number of actions. Therefore, let's make a Universe simulator! ;)
+
+
+class Universe
+    attr_accessor :conservation
+    def initialize item1, item2, item3
+        @items = [item1, item2, item3]
+        @expanding = true
+        @conservation = true
+        @crunched = false
     end
 
-    def eat
-        name = self.name
-        p "Yum! This #{name} is sooooo delicious!"
+    def see_all_things
+        p @items
+    end
+
+    def create new_item
+        @items = 
+            if @conservation
+                random_item = @items.sample
+                @items.map { |item| item == random_item ? new_item : item}
+            else
+                @items.push(new_item)
+            end
     end
 end
 
-class Pie < Dessert
+universe = Universe.new "galaxies", "stars", "planets"
+universe.see_all_things
 
-end
+# universe.create "asteroids"
+# universe.see_all_things
 
-class DeepFriedDessert < Dessert
-    def name
-        super
-    end
-    def sugar_content
-        super
-    end
-    def eat
-        name = self.name
-        p "Yum! This #{name} is sooo...ack! ugh! *heart-attack*"
-    end
-end
-
-class IceCream < Dessert
-    attr_accessor :toppings
-    def name
-        super
-    end
-    def sugar_content
-        super
-    end
-end
-
-apple_pie = Pie.new "apple pie", "400g"
-p apple_pie
-apple_pie.eat
-
-fried_bananas = DeepFriedDessert.new "fried bananas", "200g"
-p fried_bananas
-fried_bananas.eat
-
-chocolate_ice_cream = IceCream.new "chocolate", "100g"
-p chocolate_ice_cream
-chocolate_ice_cream.toppings = "sprinkles"
-p chocolate_ice_cream
+# universe.conservation = false
+# universe.create "asteroids"
+# universe.see_all_things
