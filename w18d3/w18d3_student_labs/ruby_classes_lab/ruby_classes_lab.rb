@@ -136,6 +136,7 @@
 
 class Universe
     attr_accessor :conservation
+    attr_reader :items
     def initialize item1, item2, item3
         @items = [item1, item2, item3]
         @expanding = true
@@ -167,3 +168,15 @@ universe.see_all_things
 # universe.conservation = false
 # universe.create "asteroids"
 # universe.see_all_things
+
+while universe.conservation == true
+    universe.create "mosquito"
+    if universe.items.all? {|item| item == "mosquito"}
+        universe.conservation = false
+        p universe.items 
+    end
+end
+
+
+parallel = Universe.new "black holes", "aliens", "comets"
+p parallel
