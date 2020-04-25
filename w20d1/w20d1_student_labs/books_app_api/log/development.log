@@ -572,3 +572,185 @@ Processing by BooksController#preview as HTML
 Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 735)
 
 
+Started POST "/books" for ::1 at 2020-04-25 14:48:04 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"title"=>"The Great Gatsby", "author"=>"F. Scott Fitzgerald", "genre"=>"Fiction", "publisher"=>"Charles Scribner and Sons", "publish_date"=>"1925-04-10"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "genre", "publisher", "publish_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Great Gatsby"], ["author", "F. Scott Fitzgerald"], ["genre", "Fiction"], ["publisher", "Charles Scribner and Sons"], ["publish_date", "1925-04-10"], ["created_at", "2020-04-25 18:48:05.138578"], ["updated_at", "2020-04-25 18:48:05.138578"]]
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+Completed 201 Created in 34ms (Views: 0.5ms | ActiveRecord: 9.7ms | Allocations: 8498)
+
+
+Started POST "/books" for ::1 at 2020-04-25 14:48:17 -0400
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"title"=>"The Great Gatsby", "author"=>"F. Scott Fitzgerald", "publisher"=>"Charles Scribner and Sons", "publish_date"=>"1925-04-10"}, "books"=>{"genre"=>"Fiction"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mBook Create (2.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "publisher", "publish_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Great Gatsby"], ["author", "F. Scott Fitzgerald"], ["publisher", "Charles Scribner and Sons"], ["publish_date", "1925-04-10"], ["created_at", "2020-04-25 18:48:17.070444"], ["updated_at", "2020-04-25 18:48:17.070444"]]
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+Completed 201 Created in 11ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 2412)
+
+
+Started POST "/books" for ::1 at 2020-04-25 14:50:43 -0400
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"title"=>"The Great Gatsby 2", "author"=>"F. Scott Fitzgerald", "publisher"=>"Charles Scribner and Sons", "publish_date"=>"1925-04-10"}, "bookz"=>{"genre"=>"Fiction"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "publisher", "publish_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Great Gatsby 2"], ["author", "F. Scott Fitzgerald"], ["publisher", "Charles Scribner and Sons"], ["publish_date", "1925-04-10"], ["created_at", "2020-04-25 18:50:43.790681"], ["updated_at", "2020-04-25 18:50:43.790681"]]
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+Completed 201 Created in 25ms (Views: 0.4ms | ActiveRecord: 6.0ms | Allocations: 7733)
+
+
+Started POST "/books" for ::1 at 2020-04-25 14:51:05 -0400
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"title"=>"The Great Gatsby 2", "publisher"=>"Charles Scribner and Sons", "publish_date"=>"1925-04-10"}, "bookz"=>{"genre"=>"Fictio"}}
+Completed 422 Unprocessable Entity in 153ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 181757)
+
+
+Started POST "/books" for ::1 at 2020-04-25 14:51:10 -0400
+Processing by BooksController#create as */*
+  Parameters: {"book"=>{"title"=>"The Great Gatsby 2", "publisher"=>"Charles Scribner and Sons", "publish_date"=>"1925-04-10"}, "bookz"=>{"genre"=>"Fictio"}}
+Completed 422 Unprocessable Entity in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 752)
+
+
+Started GET "/books/" for ::1 at 2020-04-25 15:19:50 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BooksController#index as */*
+  Parameters: {"book"=>{}}
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:5:in `index'
+Completed 200 OK in 44ms (Views: 39.7ms | ActiveRecord: 7.7ms | Allocations: 23250)
+
+
+Started PUT "/books/102" for ::1 at 2020-04-25 15:20:27 -0400
+Processing by BooksController#update as */*
+  Parameters: {"book"=>{"genre"=>"Non-Fiction"}, "id"=>"102"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 496)
+
+
+  
+NoMethodError (undefined method `find' for nil:NilClass):
+  
+app/controllers/books_controller.rb:28:in `update'
+Started DELETE "/books/102" for ::1 at 2020-04-25 15:21:15 -0400
+Processing by BooksController#destroy as */*
+  Parameters: {"id"=>"102", "book"=>{}}
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 0.0ms | Allocations: 71657)
+
+
+  
+NameError (undefined local variable or method `book' for #<BooksController:0x00007ff1a12f5090>):
+  
+app/controllers/books_controller.rb:38:in `destroy'
+Started GET "/books/102" for ::1 at 2020-04-25 15:21:57 -0400
+Processing by BooksController#show as */*
+  Parameters: {"id"=>"102", "book"=>{}}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:9:in `show'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 2394)
+
+
+Started GET "/books/" for ::1 at 2020-04-25 15:22:03 -0400
+Processing by BooksController#index as */*
+  Parameters: {"book"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:5:in `index'
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.7ms | Allocations: 18392)
+
+
+Started GET "/books/" for ::1 at 2020-04-25 15:22:54 -0400
+Processing by BooksController#index as */*
+  Parameters: {"book"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:5:in `index'
+Completed 200 OK in 29ms (Views: 24.6ms | ActiveRecord: 6.7ms | Allocations: 22834)
+
+
+Started PUT "/books/102" for ::1 at 2020-04-25 15:23:08 -0400
+Processing by BooksController#update as */*
+  Parameters: {"book"=>{"genre"=>"Non-Fiction"}, "id"=>"102"}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:28:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:29:in `update'
+  [1m[36mBook Update (4.3ms)[0m  [1m[33mUPDATE "books" SET "genre" = $1, "updated_at" = $2 WHERE "books"."id" = $3[0m  [["genre", "Non-Fiction"], ["updated_at", "2020-04-25 19:23:08.737302"], ["id", 102]]
+  ↳ app/controllers/books_controller.rb:29:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:29:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 5.4ms | Allocations: 3292)
+
+
+Started DELETE "/books/103" for ::1 at 2020-04-25 15:23:22 -0400
+Processing by BooksController#destroy as */*
+  Parameters: {"id"=>"103", "book"=>{}}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:38:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:38:in `destroy'
+  [1m[36mBook Destroy (0.5ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 103]]
+  ↳ app/controllers/books_controller.rb:38:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:38:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 2301)
+
+
+Started GET "/books/" for ::1 at 2020-04-25 15:23:28 -0400
+Processing by BooksController#index as */*
+  Parameters: {"book"=>{}}
+  [1m[36mBook Load (30.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:5:in `index'
+Completed 200 OK in 52ms (Views: 22.0ms | ActiveRecord: 30.3ms | Allocations: 18235)
+
+
+Started PUT "/books/99" for ::1 at 2020-04-25 15:24:22 -0400
+Processing by BooksController#update as */*
+  Parameters: {"book"=>{"genre"=>"Fiction"}, "id"=>"99"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 99], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:28:in `update'
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:29:in `update'
+  [1m[36mBook Update (3.2ms)[0m  [1m[33mUPDATE "books" SET "genre" = $1, "updated_at" = $2 WHERE "books"."id" = $3[0m  [["genre", "Fiction"], ["updated_at", "2020-04-25 19:24:22.849332"], ["id", 99]]
+  ↳ app/controllers/books_controller.rb:29:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:29:in `update'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 5.1ms | Allocations: 2994)
+
+
+Started GET "/books/" for ::1 at 2020-04-25 15:24:27 -0400
+Processing by BooksController#index as */*
+  Parameters: {"book"=>{"genre"=>"Fiction"}}
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.8ms | Allocations: 18217)
+
+
+Started DELETE "/books/102" for ::1 at 2020-04-25 15:28:53 -0400
+Processing by BooksController#destroy as */*
+  Parameters: {"book"=>{"genre"=>"Fiction"}, "id"=>"102"}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:38:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/books_controller.rb:38:in `destroy'
+  [1m[36mBook Destroy (1.1ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 102]]
+  ↳ app/controllers/books_controller.rb:38:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/books_controller.rb:38:in `destroy'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2283)
+
+
+Started GET "/books/" for ::1 at 2020-04-25 15:29:00 -0400
+Processing by BooksController#index as */*
+  Parameters: {"book"=>{"genre"=>"Fiction"}}
+  [1m[36mBook Load (2.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:5:in `index'
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 2.2ms | Allocations: 18046)
+
+

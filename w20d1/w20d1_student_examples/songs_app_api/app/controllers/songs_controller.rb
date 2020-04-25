@@ -34,6 +34,24 @@ class SongsController < ApplicationController
         end
     end
 
+    def update
+        song = Song.find(params[:id])
+        song.update(song_params)
+        if song.save
+            render status: 200, json: {song: song}
+        else
+            render status: 422, json: {song: song}
+        end
+    end
+
+    def destroy
+        song = Song.destroy(params[:id])
+        render(json: {status:204})
+    end
+
+
+
+
     private #Any methods below here
 
     def song_params
