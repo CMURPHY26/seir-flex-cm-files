@@ -299,3 +299,8 @@ Migrating to CreateSongs (20200425143043)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mSong Create (0.3ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Pitchfork austin hella normcore."], ["artist_name", "Maine werewolves"], ["artwork", "https://placehold.it/300x300.png"]]
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSong Load (0.3ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mSong Load (0.6ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
+  [1m[36mSong Load (0.5ms)[0m  [1m[34mSELECT "songs".* FROM "songs"[0m
