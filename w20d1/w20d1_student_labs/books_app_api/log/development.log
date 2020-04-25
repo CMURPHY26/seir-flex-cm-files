@@ -381,3 +381,18 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 27ms (Views: 19.7ms | ActiveRecord: 6.3ms | Allocations: 23067)
 
 
+Started GET "/books" for ::1 at 2020-04-25 12:32:01 -0400
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/controllers/books_controller.rb:5:in `index'
+Completed 200 OK in 29ms (Views: 19.2ms | ActiveRecord: 7.3ms | Allocations: 23034)
+
+
+Started GET "/books/1" for ::1 at 2020-04-25 12:32:03 -0400
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:9:in `show'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1211)
+
+

@@ -5,5 +5,10 @@ class BooksController < ApplicationController
         render json: {status: 200, books: books}
     end
 
+    def show
+        book = Book.find(params[:id])
+        render json: {status: 200, book: book}
+    end
+
 
 end
