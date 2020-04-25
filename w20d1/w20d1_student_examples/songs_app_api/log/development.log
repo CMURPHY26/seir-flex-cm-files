@@ -268,3 +268,34 @@ Migrating to CreateSongs (20200425143043)
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5838994508422185915)[0m
   [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (2.6ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Venmo iphone diy pabst."], ["artist_name", "Utah spirits"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.3ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Viral slow-carb five dollar toast goth tilde."], ["artist_name", "Illinois kangaroos"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.3ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Pour-over flannel drinking tote bag slow-carb."], ["artist_name", "Montana sorcerors"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.2ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Before they sold out humblebrag pitchfork kinfolk farm-to-table squid direct trade pbr&b microdosing."], ["artist_name", "Michigan oracles"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.2ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Viral kogi crucifix try-hard lumbersexual raw denim helvetica."], ["artist_name", "South Carolina druids"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.3ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Tofu direct trade shoreditch austin quinoa goth leggings authentic park."], ["artist_name", "Georgia ghosts"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.2ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Kinfolk keytar twee cred portland synth street."], ["artist_name", "North Dakota cattle"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.3ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Pour-over polaroid lo-fi drinking salvia gastropub green juice."], ["artist_name", "Kentucky werewolves"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.2ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Selfies disrupt kombucha thundercats tofu phlogiston iphone swag."], ["artist_name", "Maine sheep"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSong Create (0.3ms)[0m  [1m[32mINSERT INTO "songs" ("title", "artist_name", "artwork") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Pitchfork austin hella normcore."], ["artist_name", "Maine werewolves"], ["artwork", "https://placehold.it/300x300.png"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
