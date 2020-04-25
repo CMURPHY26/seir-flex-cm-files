@@ -22,6 +22,24 @@ class SongsController < ApplicationController
         render json: {status: 200, song: song}
     end
 
+    def create
+        #creates a new song but uses strong params through song_params to validate the data
+        song = Song.new(song_params)
+
+        if song.save
+            #if found render status 201
+            render(status: 201, json: { song: song })
+        else
+            render(status: 422, json: { song: song })
+        end
+    end
+
+    private #Any methods below here
+
+    def song_params
+        #Returns a sanitized hash of the params with nothing extra
+        #requiring the song model and permitting only these fields
+        params.required(:song).permit(:title,:artist_name, :artwork)
+    end
+
 end
-
-
