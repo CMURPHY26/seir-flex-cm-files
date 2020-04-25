@@ -702,3 +702,11 @@ Processing by SongsController#show as HTML
 Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2806)
 
 
+Started GET "/songs/10" for ::1 at 2020-04-25 11:57:38 -0400
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mSong Load (0.1ms)[0m  [1m[34mSELECT "songs".* FROM "songs" WHERE "songs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/songs_controller.rb:21:in `show'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 5.3ms | Allocations: 3558)
+
+
