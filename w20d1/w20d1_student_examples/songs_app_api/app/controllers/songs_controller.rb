@@ -14,7 +14,9 @@ class SongsController < ApplicationController
 
     def show
         #in javascript it was req.params.id instead of params[:id]
-        render json: Song.find(params[:id])
+        # render json: Song.find(params[:id])
+        song = Song.find(params[:id])
+        render json: {status: 200, song: song}
     end
 
 end
