@@ -19,8 +19,27 @@ class App extends React.Component {
     //using proxy in package json -- only use for development. You can also use relative urls and fetch "/notices" instead of below
     fetch('http://localhost:3000/notices')
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => this.setState({notices: json}))
       .catch(error => console.error(error))
+  }
+
+  handleAdd = (event, formInputs) => {
+    event.preventDefault();
+    fetch("http://localhost:3000/notices", {
+      body: JSON.stringify(formInputs),
+      method: "POST",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    }).then(createdNotice => createdNotice.json()).then(jsonedNotice => {
+      //add notice to notices
+      this.setState({
+        //...spread operator to add new notice to notices
+        notices: [jsonedNotice, ...this.state.notices]
+      })
+    }).catch(error => console.log(error))
+
   }
 
 
@@ -29,7 +48,7 @@ class App extends React.Component {
       <div className="App">
         <div className='container'>
           <Header />
-          <Aside />
+          <Aside handleSubmit={this.handleAdd}/>
           <Main notices={this.state.notices} />
           <Nav />
           <Footer />
