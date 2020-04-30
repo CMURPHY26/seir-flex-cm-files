@@ -26,6 +26,19 @@ class Form extends React.Component {
       }
     )
   }
+
+  componentWillMount () {
+    if(this.props.notice) {
+      const {title, author, phone, id} = this.props.notice
+      this.setState({
+        title: title || '',
+        author: author || '',
+        phone: phone || '',
+        id: id || ''
+      })
+    }
+  }
+
   render () {
     return (
       <form onSubmit={this.handleSubmit}>

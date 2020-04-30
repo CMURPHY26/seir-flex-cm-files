@@ -5,7 +5,7 @@ function Aside(props) {
     return (
       <aside>
         <h1>Aside</h1>
-        <Form handleSubmit={props.handleSubmit}/>
+        <Form handleSubmit={props.handleSubmit} />
       </aside>
     )
 }

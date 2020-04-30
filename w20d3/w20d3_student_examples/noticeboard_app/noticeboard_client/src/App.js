@@ -39,9 +39,43 @@ class App extends React.Component {
         notices: [jsonedNotice, ...this.state.notices]
       })
     }).catch(error => console.log(error))
+  }
+
+  handleDelete = (deletedNotice) => {
+    fetch(`/notices/${deletedNotice.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(json => {
+      //filter creates extra efficiency for updating state and removing notice without doing another fetch
+      const notices = this.state.notices.filter(
+        notice => notice.id !== deletedNotice.id)
+        this.setState({notices: notices})
+    })
+    .catch(error => console.log(error))
 
   }
 
+  handleUpdate = (event, formInputs) => {
+    event.preventDefault();
+    fetch(`http://localhost:3000/notices/${formInputs.id}`, {
+      body: JSON.stringify(formInputs),
+      method: 'PUT',
+   headers: {
+     'Accept': 'application/json, text/plain, */*',
+     'Content-Type': 'application/json'
+   }
+  })
+   .then(updatedNotice => {
+     // go wild
+     this.getNotices()
+   })
+   .catch(error => console.log(error))
+
+  }
 
   render() {
     return (
@@ -49,7 +83,10 @@ class App extends React.Component {
         <div className='container'>
           <Header />
           <Aside handleSubmit={this.handleAdd}/>
-          <Main notices={this.state.notices} />
+          <Main 
+          notices={this.state.notices} handleDelete={this.handleDelete}
+          handleUpdate={this.handleUpdate}
+          />
           <Nav />
           <Footer />
         </div>

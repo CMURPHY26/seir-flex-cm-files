@@ -639,3 +639,171 @@ Processing by NoticesController#index as */*
 Completed 200 OK in 49ms (Views: 38.7ms | ActiveRecord: 10.5ms | Allocations: 14218)
 
 
+Started GET "/notices" for ::1 at 2020-04-29 20:54:19 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (1.2ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 70ms (Views: 66.1ms | ActiveRecord: 1.2ms | Allocations: 14273)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:10:31 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (7.7ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 89ms (Views: 80.5ms | ActiveRecord: 7.7ms | Allocations: 14276)
+
+
+Started DELETE "/notices/101" for 127.0.0.1 at 2020-04-29 21:13:04 -0400
+Processing by NoticesController#destroy as HTML
+  Parameters: {"id"=>"101", "notice"=>{}}
+  [1m[36mNotice Load (0.5ms)[0m  [1m[34mSELECT "notices".* FROM "notices" WHERE "notices"."id" = $1 LIMIT $2[0m  [["id", 101], ["LIMIT", 1]]
+  ↳ app/controllers/notices_controller.rb:44:in `set_notice'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notices_controller.rb:38:in `destroy'
+  [1m[36mNotice Destroy (3.4ms)[0m  [1m[31mDELETE FROM "notices" WHERE "notices"."id" = $1[0m  [["id", 101]]
+  ↳ app/controllers/notices_controller.rb:38:in `destroy'
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notices_controller.rb:38:in `destroy'
+Completed 204 No Content in 30ms (ActiveRecord: 5.2ms | Allocations: 3709)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:20:54 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (1.0ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 1.0ms | Allocations: 14140)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:21:35 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.8ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.8ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:23:10 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (17.2ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 34ms (Views: 16.8ms | ActiveRecord: 17.2ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:25:16 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.9ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.9ms | Allocations: 14085)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:25:27 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.4ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.4ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:27:52 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.6ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.6ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:46:07 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (1.3ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 1.3ms | Allocations: 14143)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:46:58 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (20.7ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 40ms (Views: 18.9ms | ActiveRecord: 20.7ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:48:31 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.8ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.8ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:49:10 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (2.5ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 23ms (Views: 20.5ms | ActiveRecord: 2.5ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:50:23 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.5ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.5ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:52:05 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (1.0ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 1.0ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:54:00 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.8ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.8ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:54:24 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (1.1ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 1.1ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:55:03 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (3.8ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 57ms (Views: 52.9ms | ActiveRecord: 3.8ms | Allocations: 14085)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:55:17 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.4ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.4ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:55:43 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (1.0ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 1.0ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:56:15 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (1.2ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 1.2ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 21:59:13 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.7ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.7ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-04-29 22:01:37 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.4ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.4ms | Allocations: 14082)
+
+
