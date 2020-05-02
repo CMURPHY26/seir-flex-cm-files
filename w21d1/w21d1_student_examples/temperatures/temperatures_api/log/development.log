@@ -697,3 +697,63 @@ Processing by LocationsController#show as */*
 Completed 200 OK in 24ms (Views: 0.6ms | ActiveRecord: 2.9ms | Allocations: 3129)
 
 
+Started GET "/locations/1" for 127.0.0.1 at 2020-05-02 16:17:09 -0400
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.7ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+  [1m[36mTemperature Load (0.5ms)[0m  [1m[34mSELECT "temperatures".* FROM "temperatures" WHERE "temperatures"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:15:in `show'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 3008)
+
+
+Started GET "/locations/1" for 127.0.0.1 at 2020-05-02 16:17:31 -0400
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.6ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+  [1m[36mTemperature Load (0.4ms)[0m  [1m[34mSELECT "temperatures".* FROM "temperatures" WHERE "temperatures"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:15:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 3008)
+
+
+Started GET "/locations/1" for 127.0.0.1 at 2020-05-02 16:17:48 -0400
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (2.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+  [1m[36mTemperature Load (0.7ms)[0m  [1m[34mSELECT "temperatures".* FROM "temperatures" WHERE "temperatures"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:15:in `show'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 3008)
+
+
+Started GET "/locations/1" for 127.0.0.1 at 2020-05-02 16:18:52 -0400
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+  [1m[36mTemperature Load (0.3ms)[0m  [1m[34mSELECT "temperatures".* FROM "temperatures" WHERE "temperatures"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:15:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3008)
+
+
+Started GET "/locations/1" for 127.0.0.1 at 2020-05-02 16:19:23 -0400
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+  [1m[36mTemperature Load (0.3ms)[0m  [1m[34mSELECT "temperatures".* FROM "temperatures" WHERE "temperatures"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:15:in `show'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 3008)
+
+
+Started GET "/locations/1" for 127.0.0.1 at 2020-05-02 16:19:28 -0400
+Processing by LocationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/locations_controller.rb:14:in `show'
+  [1m[36mTemperature Load (0.3ms)[0m  [1m[34mSELECT "temperatures".* FROM "temperatures" WHERE "temperatures"."location_id" = $1[0m  [["location_id", 1]]
+  ↳ app/controllers/locations_controller.rb:15:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3008)
+
+

@@ -9,14 +9,20 @@ class BarChart extends Component {
             {
               label: 'Avg high temps',
               data: []
+            },
+            {
+                label: 'Avg low temps',
+                data: []
             }
+
           ]
         }
-      
-        data.temperatures.forEach(temperature => {
-          chartData.labels.push(temperature.month)
-          chartData.datasets[0].data.push(temperature.average_high_f)
-        })
+
+        data.temperatures.forEach((temperature) => {
+            chartData.labels.push(temperature.month);
+            chartData.datasets[0].data.push(temperature.average_high_f);
+            chartData.datasets[1].data.push(temperature.average_low_f);
+          });
     
         return chartData
       }
@@ -24,7 +30,7 @@ class BarChart extends Component {
       createChart = (data) => {
         const ctx = document.querySelector('#temperatures')
         const tempsChart = new Chart(ctx, {
-          type: 'line',
+          type: 'bar',
           data: data
         })
       }
