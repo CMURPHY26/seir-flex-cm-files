@@ -1,0 +1,1033 @@
+  [1m[35m (192.2ms)[0m  [1m[35mCREATE DATABASE "stocks_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (77.5ms)[0m  [1m[35mCREATE DATABASE "stocks_api_test" ENCODING = 'unicode'[0m
+Started GET "/" for ::1 at 2020-05-02 12:44:17 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.3ms | Allocations: 478)
+Completed 200 OK in 19ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 2621)
+
+
+  [1m[35m (25.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7094991244285932750)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStocks (20200502165211)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "stocks" ("id" bigserial primary key, "name" character varying, "ticker" character varying, "company" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200502165211"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePrices (20200502165539)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "prices" ("id" bigserial primary key, "avg_price" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200502165539"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToPrices (20200502165712)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "prices" ADD "stock_id_id" bigint NOT NULL[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_prices_on_stock_id_id" ON "prices"  ("stock_id_id")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "prices" ADD CONSTRAINT "fk_rails_67f0076796"
+FOREIGN KEY ("stock_id_id")
+  REFERENCES "stock_ids" ("id")
+[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094991244285932750)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7094991244285932750)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyToPrices (20200502165712)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "prices" ADD "stock_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200502165712"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-02 17:01:39.744991"], ["updated_at", "2020-05-02 17:01:39.744991"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094991244285932750)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7094991244285932750)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveColumnFromStocks (20200502175224)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.0ms)[0m  [1m[35mALTER TABLE "stocks" DROP COLUMN "name"[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200502175224"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094991244285932750)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7094991244285932750)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveColumnFromStocks (20200502175224)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094991244285932750)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7094991244285932750)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveColumnFromStocks (20200502175224)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "stocks" ADD "name" character varying[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200502175224"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094991244285932750)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7094991244285932750)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddForeignKeyToPrices (20200502165712)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "prices" DROP COLUMN "stock_id"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200502165712"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094991244285932750)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7094991244285932750)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePrices (20200502165539)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.9ms)[0m  [1m[35mDROP TABLE "prices"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200502165539"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094991244285932750)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7094991244285932750)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePrices (20200502165539)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "prices" ("id" bigserial primary key, "avg_price" decimal, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200502165539"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddForeignKeyToPrices (20200502165712)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "prices" ADD "stock_id" integer[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200502165712"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveColumnFromStocks (20200502175224)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "stocks" DROP COLUMN "name"[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200502175224"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7094991244285932750)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-05-02 13:59:13 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.1ms | Allocations: 315)
+Completed 200 OK in 39ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 1601)
+
+
+Started GET "/stocks" for ::1 at 2020-05-02 13:59:17 -0400
+Processing by StocksController#index as HTML
+  [1m[36mStock Load (3.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/controllers/stocks_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 2.1ms | ActiveRecord: 4.8ms | Allocations: 2798)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStock Create (0.9ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "company", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ticker", "FB"], ["company", "Facebook"], ["created_at", "2020-05-02 17:59:34.037349"], ["updated_at", "2020-05-02 17:59:34.037349"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStock Create (0.2ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "company", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ticker", "AMZN"], ["company", "Amazon"], ["created_at", "2020-05-02 17:59:34.041525"], ["updated_at", "2020-05-02 17:59:34.041525"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStock Create (0.3ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "company", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ticker", "AAPL"], ["company", "Apple"], ["created_at", "2020-05-02 17:59:34.044339"], ["updated_at", "2020-05-02 17:59:34.044339"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStock Create (0.3ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "company", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["ticker", "MSFT"], ["company", "Microsoft"], ["created_at", "2020-05-02 17:59:34.047367"], ["updated_at", "2020-05-02 17:59:34.047367"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPrice Create (1.2ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "202.27"], ["created_at", "2020-05-02 17:59:34.081721"], ["updated_at", "2020-05-02 17:59:34.081721"], ["stock_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPrice Create (0.4ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "2286.04"], ["created_at", "2020-05-02 17:59:34.087200"], ["updated_at", "2020-05-02 17:59:34.087200"], ["stock_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPrice Create (0.3ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "289.07"], ["created_at", "2020-05-02 17:59:34.091557"], ["updated_at", "2020-05-02 17:59:34.091557"], ["stock_id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPrice Create (0.4ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "174.57"], ["created_at", "2020-05-02 17:59:34.096250"], ["updated_at", "2020-05-02 17:59:34.096250"], ["stock_id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/stocks" for ::1 at 2020-05-02 13:59:36 -0400
+Processing by StocksController#index as HTML
+  [1m[36mStock Load (0.9ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/controllers/stocks_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 7.0ms | ActiveRecord: 6.3ms | Allocations: 4252)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-05-02 13:59:36 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/prices" for ::1 at 2020-05-02 13:59:39 -0400
+Processing by PricesController#index as HTML
+  [1m[36mPrice Load (0.7ms)[0m  [1m[34mSELECT "prices".* FROM "prices"[0m
+  ↳ app/controllers/prices_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 5.3ms | ActiveRecord: 4.7ms | Allocations: 5190)
+
+
+Started GET "/prices/1" for ::1 at 2020-05-02 13:59:54 -0400
+Processing by PricesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPrice Load (0.3ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prices_controller.rb:44:in `set_price'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1138)
+
+
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:12:47 -0400
+  
+SyntaxError (/Users/cl/Desktop/seir-flex-cm-files/w21d1/w21d1_student_labs/stocks/stocks_api/config/routes.rb:3: syntax error, unexpected [, expecting do or '{' or '('
+  resources :stocks, only [:index, :show] do
+                          ^
+/Users/cl/Desktop/seir-flex-cm-files/w21d1/w21d1_student_labs/stocks/stocks_api/config/routes.rb:3: syntax error, unexpected do (for block), expecting end
+...stocks, only [:index, :show] do
+...                             ^~
+/Users/cl/Desktop/seir-flex-cm-files/w21d1/w21d1_student_labs/stocks/stocks_api/config/routes.rb:5: syntax error, unexpected end, expecting end-of-input
+  end
+  ^~~):
+  
+config/routes.rb:3: syntax error, unexpected [, expecting do or '{' or '('
+config/routes.rb:3: syntax error, unexpected do (for block), expecting end
+config/routes.rb:5: syntax error, unexpected end, expecting end-of-input
+config/routes.rb:3: syntax error, unexpected [, expecting do or '{' or '('
+config/routes.rb:3: syntax error, unexpected do (for block), expecting end
+config/routes.rb:5: syntax error, unexpected end, expecting end-of-input
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:13:16 -0400
+  
+NameError (undefined local variable or method `only' for #<ActionDispatch::Routing::Mapper:0x00007f9f485faf48>):
+  
+config/routes.rb:4:in `block (2 levels) in <main>'
+config/routes.rb:3:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:13:26 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms | Allocations: 35465)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007f9f47a6a868>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:15:04 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 0.0ms | Allocations: 35449)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007f9f4a40e228>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:15:06 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.0ms | Allocations: 35433)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007f9f4857ff28>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2020-05-02 14:15:06 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:15:26 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.0ms | Allocations: 35449)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007f9f486ba8c0>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:15:27 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 0.0ms | Allocations: 35427)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007f9f4a42a7c0>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/" for ::1 at 2020-05-02 14:16:03 -0400
+Processing by StocksController#index as HTML
+  [1m[36mStock Load (1.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/controllers/stocks_controller.rb:8:in `index'
+Completed 200 OK in 34ms (Views: 7.8ms | ActiveRecord: 17.8ms | Allocations: 6412)
+
+
+Started GET "/stocks/1/prices" for ::1 at 2020-05-02 14:16:10 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/stocks/1/prices"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-05-02 14:16:41 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 28.0ms | Allocations: 315)
+Completed 200 OK in 35ms (Views: 32.0ms | ActiveRecord: 0.0ms | Allocations: 1598)
+
+
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:16:45 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms | Allocations: 35494)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007fa07b367478>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:17:43 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.0ms | Allocations: 35440)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007fa07b5d2370>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2020-05-02 14:17:43 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/" for ::1 at 2020-05-02 14:17:45 -0400
+Processing by StocksController#index as HTML
+  [1m[36mStock Load (2.8ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/controllers/stocks_controller.rb:8:in `index'
+Completed 200 OK in 23ms (Views: 6.2ms | ActiveRecord: 11.7ms | Allocations: 5870)
+
+
+Started GET "/prices/" for ::1 at 2020-05-02 14:17:48 -0400
+Processing by PricesController#index as HTML
+  [1m[36mPrice Load (0.9ms)[0m  [1m[34mSELECT "prices".* FROM "prices"[0m
+  ↳ app/controllers/prices_controller.rb:7:in `index'
+Completed 200 OK in 16ms (Views: 6.1ms | ActiveRecord: 6.4ms | Allocations: 5031)
+
+
+Started GET "/stocks/" for ::1 at 2020-05-02 14:17:51 -0400
+Processing by StocksController#index as HTML
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks"[0m
+  ↳ app/controllers/stocks_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1266)
+
+
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:17:54 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.0ms | Allocations: 35423)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007fa07b9a9368>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:18:25 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 0.0ms | Allocations: 35425)
+
+
+  
+NoMethodError (undefined method `set_stock' for #<StocksController:0x00007fa07dbc6b58>):
+  
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:429:in `block in make_lambda'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:183:in `block in halting_and_conditional'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `block in invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `each'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:514:in `invoke_before'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.2.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.2.2) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.2.2) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.2.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:19:40 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.2ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 44ms (Views: 0.2ms | ActiveRecord: 11.7ms | Allocations: 12662)
+
+
+Started GET "/stocks/2" for ::1 at 2020-05-02 14:19:51 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.9ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 2]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 1543)
+
+
+Started GET "/stocks/3" for ::1 at 2020-05-02 14:19:54 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.4ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 3]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 1543)
+
+
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 14:25:02 -0400
+Processing by PricesController#create as */*
+  Parameters: {"avg_price"=>"800", "stock_id"=>"1"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 125)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: price):
+  
+app/controllers/prices_controller.rb:24:in `price_params'
+app/controllers/prices_controller.rb:12:in `create'
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 14:26:38 -0400
+Processing by PricesController#create as */*
+  Parameters: {"avg_price"=>"800.00", "stock_id"=>"1"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 109)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: price):
+  
+app/controllers/prices_controller.rb:24:in `price_params'
+app/controllers/prices_controller.rb:12:in `create'
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 14:32:49 -0400
+Processing by PricesController#create as */*
+  Parameters: {"avg_price"=>"800.00", "stock_id"=>"1"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 109)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: price):
+  
+app/controllers/prices_controller.rb:24:in `price_params'
+app/controllers/prices_controller.rb:12:in `create'
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 14:33:22 -0400
+Processing by PricesController#create as */*
+  Parameters: {"price"=>{"avg_price"=>"800.00", "stock_id"=>"1"}, "stock_id"=>"1"}
+[31mUnpermitted parameter: :stock_id[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mStock Load (0.8ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mPrice Create (1.3ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "800.0"], ["created_at", "2020-05-02 18:33:22.521272"], ["updated_at", "2020-05-02 18:33:22.521272"], ["stock_id", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+Completed 201 Created in 26ms (Views: 0.8ms | ActiveRecord: 10.3ms | Allocations: 3845)
+
+
+Started GET "/stocks/1" for ::1 at 2020-05-02 14:34:06 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.9ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.4ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 1696)
+
+
