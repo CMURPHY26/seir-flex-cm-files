@@ -807,3 +807,187 @@ Processing by NoticesController#index as */*
 Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.4ms | Allocations: 14082)
 
 
+Started GET "/notices" for ::1 at 2020-05-02 09:04:29 -0400
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (9.1ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 80ms (Views: 19.5ms | ActiveRecord: 59.1ms | Allocations: 18516)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:12:26 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (1.2ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 1.2ms | Allocations: 14152)
+
+
+Started PUT "/notices/undefined" for ::1 at 2020-05-02 09:15:26 -0400
+Processing by NoticesController#update as HTML
+  Parameters: {"title"=>"Windom Earle's mind is like a diamond. It's cold, and hard, and brilliant.", "author"=>"Obi-Wan Kenobi", "phone"=>"1-580-051-1943", "id"=>"undefined", "notice"=>{"title"=>"Windom Earle's mind is like a diamond. It's cold, and hard, and brilliant.", "author"=>"Obi-Wan Kenobi", "phone"=>"1-580-051-1943"}}
+  [1m[36mNotice Load (0.9ms)[0m  [1m[34mSELECT "notices".* FROM "notices" WHERE "notices"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/notices_controller.rb:44:in `set_notice'
+Completed 404 Not Found in 22ms (ActiveRecord: 1.2ms | Allocations: 2131)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Notice with 'id'=undefined):
+  
+app/controllers/notices_controller.rb:44:in `set_notice'
+Started GET "/notices" for ::1 at 2020-05-02 09:15:26 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.4ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.4ms | Allocations: 14120)
+
+
+Started PUT "/notices/undefined" for ::1 at 2020-05-02 09:15:32 -0400
+Processing by NoticesController#update as HTML
+  Parameters: {"title"=>"She's dead... Wrapped in plastic.", "author"=>"Sheev Palpatine2", "phone"=>"606-191-6208", "id"=>"undefined", "notice"=>{"title"=>"She's dead... Wrapped in plastic.", "author"=>"Sheev Palpatine2", "phone"=>"606-191-6208"}}
+  [1m[36mNotice Load (0.4ms)[0m  [1m[34mSELECT "notices".* FROM "notices" WHERE "notices"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/notices_controller.rb:44:in `set_notice'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 635)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Notice with 'id'=undefined):
+  
+app/controllers/notices_controller.rb:44:in `set_notice'
+Started GET "/notices" for ::1 at 2020-05-02 09:15:32 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.5ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 14084)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:15:41 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.6ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 14100)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:15:42 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.8ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.8ms | Allocations: 14082)
+
+
+Started PUT "/notices/undefined" for ::1 at 2020-05-02 09:15:45 -0400
+Processing by NoticesController#update as HTML
+  Parameters: {"title"=>"She's dead... Wrapped in plastic.", "author"=>"Sheev Palpatine2", "phone"=>"606-191-6208", "id"=>"undefined", "notice"=>{"title"=>"She's dead... Wrapped in plastic.", "author"=>"Sheev Palpatine2", "phone"=>"606-191-6208"}}
+  [1m[36mNotice Load (0.3ms)[0m  [1m[34mSELECT "notices".* FROM "notices" WHERE "notices"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/notices_controller.rb:44:in `set_notice'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms | Allocations: 610)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Notice with 'id'=undefined):
+  
+app/controllers/notices_controller.rb:44:in `set_notice'
+Started GET "/notices" for ::1 at 2020-05-02 09:15:45 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.5ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.5ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:15:47 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.8ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.8ms | Allocations: 14082)
+
+
+Started PUT "/notices/undefined" for ::1 at 2020-05-02 09:17:22 -0400
+Processing by NoticesController#update as HTML
+  Parameters: {"title"=>"MAY A SMILE BE YOUR UMBRELLA. WE'VE ALL HAD OUR SOCKS TOSSED AROUND.", "author"=>"Panaka2", "phone"=>"(757) 133-4800", "id"=>"undefined", "notice"=>{"title"=>"MAY A SMILE BE YOUR UMBRELLA. WE'VE ALL HAD OUR SOCKS TOSSED AROUND.", "author"=>"Panaka2", "phone"=>"(757) 133-4800"}}
+  [1m[36mNotice Load (0.4ms)[0m  [1m[34mSELECT "notices".* FROM "notices" WHERE "notices"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/notices_controller.rb:44:in `set_notice'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms | Allocations: 610)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Notice with 'id'=undefined):
+  
+app/controllers/notices_controller.rb:44:in `set_notice'
+Started GET "/notices" for ::1 at 2020-05-02 09:17:22 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.6ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.6ms | Allocations: 14081)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:33:39 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (2.0ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 2.0ms | Allocations: 14140)
+
+
+Started PUT "/notices/2" for ::1 at 2020-05-02 09:33:44 -0400
+Processing by NoticesController#update as HTML
+  Parameters: {"title"=>"Where we're from, the birds sing a pretty song, and there's always music in the air.", "author"=>"Mon Mothma2", "phone"=>"(916) 257-0474", "id"=>"2", "notice"=>{"id"=>"2", "title"=>"Where we're from, the birds sing a pretty song, and there's always music in the air.", "author"=>"Mon Mothma2", "phone"=>"(916) 257-0474"}}
+  [1m[36mNotice Load (0.3ms)[0m  [1m[34mSELECT "notices".* FROM "notices" WHERE "notices"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/notices_controller.rb:44:in `set_notice'
+[31mUnpermitted parameter: :id[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notices_controller.rb:29:in `update'
+  [1m[36mNotice Update (9.2ms)[0m  [1m[33mUPDATE "notices" SET "author" = $1, "updated_at" = $2 WHERE "notices"."id" = $3[0m  [["author", "Mon Mothma2"], ["updated_at", "2020-05-02 13:33:44.431542"], ["id", 2]]
+  ↳ app/controllers/notices_controller.rb:29:in `update'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notices_controller.rb:29:in `update'
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 11.9ms | Allocations: 3105)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:33:44 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (2.9ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 11.6ms | ActiveRecord: 2.9ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:33:49 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.7ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.7ms | Allocations: 14085)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:42:04 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.9ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.9ms | Allocations: 14140)
+
+
+Started PUT "/notices/1" for ::1 at 2020-05-02 09:42:25 -0400
+Processing by NoticesController#update as HTML
+  Parameters: {"title"=>"Windom Earle's mind is like a diamond. It's cold, and hard, and brilliant.", "author"=>"Obi-Wan Kenobi Jr.", "phone"=>"1-580-051-1943", "id"=>"1", "notice"=>{"id"=>"1", "title"=>"Windom Earle's mind is like a diamond. It's cold, and hard, and brilliant.", "author"=>"Obi-Wan Kenobi Jr.", "phone"=>"1-580-051-1943"}}
+  [1m[36mNotice Load (0.3ms)[0m  [1m[34mSELECT "notices".* FROM "notices" WHERE "notices"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/notices_controller.rb:44:in `set_notice'
+[31mUnpermitted parameter: :id[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/notices_controller.rb:29:in `update'
+  [1m[36mNotice Update (0.6ms)[0m  [1m[33mUPDATE "notices" SET "author" = $1, "updated_at" = $2 WHERE "notices"."id" = $3[0m  [["author", "Obi-Wan Kenobi Jr."], ["updated_at", "2020-05-02 13:42:25.078514"], ["id", 1]]
+  ↳ app/controllers/notices_controller.rb:29:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/notices_controller.rb:29:in `update'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 2928)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:42:25 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (0.6ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.6ms | Allocations: 14082)
+
+
+Started GET "/notices" for ::1 at 2020-05-02 09:42:32 -0400
+Processing by NoticesController#index as */*
+  [1m[36mNotice Load (2.8ms)[0m  [1m[34mSELECT "notices".* FROM "notices"[0m
+  ↳ app/controllers/notices_controller.rb:8:in `index'
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 2.8ms | Allocations: 14085)
+
+
