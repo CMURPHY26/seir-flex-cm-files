@@ -1031,3 +1031,234 @@ Processing by StocksController#show as HTML
 Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 1696)
 
 
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:42:12 -0400
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (1.4ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 54ms (Views: 0.1ms | ActiveRecord: 18.7ms | Allocations: 12504)
+
+
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 16:42:42 -0400
+Processing by PricesController#create as */*
+  Parameters: {"price"=>{"avg_price"=>"404.50", "stock_id"=>"1"}, "stock_id"=>"1"}
+[31mUnpermitted parameter: :stock_id[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mStock Load (1.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mPrice Create (1.4ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "404.5"], ["created_at", "2020-05-02 20:42:42.541097"], ["updated_at", "2020-05-02 20:42:42.541097"], ["stock_id", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+Completed 201 Created in 27ms (Views: 0.9ms | ActiveRecord: 6.3ms | Allocations: 3797)
+
+
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 16:42:51 -0400
+Processing by PricesController#create as */*
+  Parameters: {"price"=>{"avg_price"=>"600.75", "stock_id"=>"1"}, "stock_id"=>"1"}
+[31mUnpermitted parameter: :stock_id[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mStock Load (3.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mPrice Create (2.0ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "600.75"], ["created_at", "2020-05-02 20:42:51.856622"], ["updated_at", "2020-05-02 20:42:51.856622"], ["stock_id", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+Completed 201 Created in 23ms (Views: 0.4ms | ActiveRecord: 14.6ms | Allocations: 3411)
+
+
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 16:43:03 -0400
+Processing by PricesController#create as */*
+  Parameters: {"price"=>{"avg_price"=>"125.75", "stock_id"=>"1"}, "stock_id"=>"1"}
+[31mUnpermitted parameter: :stock_id[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mStock Load (2.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mPrice Create (3.4ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "125.75"], ["created_at", "2020-05-02 20:43:03.915689"], ["updated_at", "2020-05-02 20:43:03.915689"], ["stock_id", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+Completed 201 Created in 14ms (Views: 0.3ms | ActiveRecord: 6.6ms | Allocations: 3393)
+
+
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 16:43:13 -0400
+Processing by PricesController#create as */*
+  Parameters: {"price"=>{"avg_price"=>"27.50", "stock_id"=>"1"}, "stock_id"=>"1"}
+[31mUnpermitted parameter: :stock_id[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mStock Load (1.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mPrice Create (1.1ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "27.5"], ["created_at", "2020-05-02 20:43:13.548416"], ["updated_at", "2020-05-02 20:43:13.548416"], ["stock_id", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+Completed 201 Created in 10ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 3411)
+
+
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 16:43:26 -0400
+Processing by PricesController#create as */*
+  Parameters: {"price"=>{"avg_price"=>"650.54", "stock_id"=>"1"}, "stock_id"=>"1"}
+[31mUnpermitted parameter: :stock_id[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mPrice Create (1.2ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "650.54"], ["created_at", "2020-05-02 20:43:26.061015"], ["updated_at", "2020-05-02 20:43:26.061015"], ["stock_id", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+Completed 201 Created in 13ms (Views: 0.3ms | ActiveRecord: 6.7ms | Allocations: 3411)
+
+
+Started POST "/stocks/1/prices" for ::1 at 2020-05-02 16:43:35 -0400
+Processing by PricesController#create as */*
+  Parameters: {"price"=>{"avg_price"=>"734.20", "stock_id"=>"1"}, "stock_id"=>"1"}
+[31mUnpermitted parameter: :stock_id[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mStock Load (2.9ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[36mPrice Create (1.1ms)[0m  [1m[32mINSERT INTO "prices" ("avg_price", "created_at", "updated_at", "stock_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["avg_price", "734.2"], ["created_at", "2020-05-02 20:43:35.876096"], ["updated_at", "2020-05-02 20:43:35.876096"], ["stock_id", 1]]
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/prices_controller.rb:14:in `create'
+Completed 201 Created in 13ms (Views: 0.3ms | ActiveRecord: 5.7ms | Allocations: 3391)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:46:08 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (5.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (1.7ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 33ms (Views: 0.7ms | ActiveRecord: 6.8ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for ::1 at 2020-05-02 16:47:31 -0400
+Processing by StocksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.3ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 2353)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:47:45 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.9ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:48:45 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.7ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:49:21 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.9ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.5ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:49:29 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (1.5ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.3ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 81ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 2358)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:49:48 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.2ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:50:09 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.8ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.2ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:51:08 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.2ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:51:37 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (1.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.2ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:52:58 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.8ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 1.4ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:53:37 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (2.9ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 3.2ms | Allocations: 2354)
+
+
+Started GET "/stocks/1" for 127.0.0.1 at 2020-05-02 16:54:30 -0400
+Processing by StocksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" WHERE "stocks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/stocks_controller.rb:12:in `show'
+  [1m[36mPrice Load (0.8ms)[0m  [1m[34mSELECT "prices".* FROM "prices" WHERE "prices"."stock_id" = $1[0m  [["stock_id", 1]]
+  ↳ app/controllers/stocks_controller.rb:13:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 2354)
+
+
