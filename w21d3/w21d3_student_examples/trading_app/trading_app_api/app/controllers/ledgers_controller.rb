@@ -5,12 +5,12 @@ class LedgersController < ApplicationController
   def index
     @ledgers = Ledger.all
 
-    render json: @ledgers
+    render json: @ledgers.to_json(include: [:trader, :commodity])
   end
 
   # GET /ledgers/1
   def show
-    render json: @ledger
+    render json: @ledger.to_json(include: [:trader, :commodity])
   end
 
   # POST /ledgers

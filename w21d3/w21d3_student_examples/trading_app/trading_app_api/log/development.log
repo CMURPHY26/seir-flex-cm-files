@@ -716,3 +716,92 @@ Processing by CommoditiesController#show as HTML
 Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 2419)
 
 
+Started GET "/ledgers" for ::1 at 2020-05-05 21:02:08 -0400
+Processing by LedgersController#index as HTML
+  [1m[36mLedger Load (0.4ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers"[0m
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 3.0ms | Allocations: 4933)
+
+
+Started GET "/ledgers" for ::1 at 2020-05-05 21:02:40 -0400
+Processing by LedgersController#index as HTML
+  [1m[36mLedger Load (0.4ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers"[0m
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Commodity Load (0.0ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Trader Load (0.0ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Trader Load (0.0ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Commodity Load (0.0ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Trader Load (0.0ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+Completed 200 OK in 64ms (Views: 0.1ms | ActiveRecord: 16.9ms | Allocations: 26768)
+
+
+Started GET "/ledgers" for ::1 at 2020-05-05 21:03:20 -0400
+Processing by LedgersController#index as HTML
+  [1m[36mLedger Load (0.3ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers"[0m
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Commodity Load (0.0ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Trader Load (0.0ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Trader Load (0.0ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Commodity Load (0.0ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCACHE Trader Load (0.0ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:8:in `index'
+Completed 200 OK in 55ms (Views: 0.1ms | ActiveRecord: 15.5ms | Allocations: 26498)
+
+
+Started GET "/ledgers/1" for ::1 at 2020-05-05 21:03:23 -0400
+Processing by LedgersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mLedger Load (0.2ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers" WHERE "ledgers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:44:in `set_ledger'
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:13:in `show'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/ledgers_controller.rb:13:in `show'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 2508)
+
+
