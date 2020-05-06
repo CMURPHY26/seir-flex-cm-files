@@ -5,12 +5,12 @@ class TradersController < ApplicationController
   def index
     @traders = Trader.all
 
-    render json: @traders
+    render json: @traders.to_json(include: :commodities)
   end
 
   # GET /traders/1
   def show
-    render json: @trader
+    render json: @trader.to_json(include: :commodities)
   end
 
   # POST /traders

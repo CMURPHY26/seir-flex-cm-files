@@ -504,3 +504,215 @@ FOREIGN KEY ("commodity_id")
   [1m[36mLedger Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "ledgers" LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mLedger Load (0.6ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers"[0m
   [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrader Load (0.5ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Exists? (3.9ms)[0m  [1m[34mSELECT 1 AS one FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1 LIMIT $2[0m  [["trader_id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 1]]
+  [1m[36mCommodity Load (0.5ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrader Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1 LIMIT $2[0m  [["commodity_id", 1], ["LIMIT", 1]]
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLedger Create (1.2ms)[0m  [1m[32mINSERT INTO "ledgers" ("trader_id", "commodity_id", "qty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trader_id", 1], ["commodity_id", 2], ["qty", 1], ["created_at", "2020-05-06 00:25:20.114888"], ["updated_at", "2020-05-06 00:25:20.114888"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mLedger Create (0.6ms)[0m  [1m[32mINSERT INTO "ledgers" ("trader_id", "commodity_id", "qty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trader_id", 2], ["commodity_id", 2], ["qty", 1], ["created_at", "2020-05-06 00:25:27.735697"], ["updated_at", "2020-05-06 00:25:27.735697"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1 LIMIT $2[0m  [["trader_id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.6ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 1]]
+  [1m[36mTrader Load (1.0ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLedger Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "ledgers" WHERE "ledgers"."trader_id" = $1 LIMIT $2[0m  [["trader_id", 1], ["LIMIT", 1]]
+  [1m[36mLedger Load (0.3ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 1]]
+  [1m[36mTrader Load (0.6ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLedger Load (0.4ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers" WHERE "ledgers"."trader_id" = $1 ORDER BY "ledgers"."id" ASC LIMIT $2[0m  [["trader_id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLedger Load (0.4ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers" WHERE "ledgers"."trader_id" = $1 ORDER BY "ledgers"."id" ASC LIMIT $2[0m  [["trader_id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLedger Load (0.5ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers" WHERE "ledgers"."trader_id" = $1 ORDER BY "ledgers"."id" ASC LIMIT $2[0m  [["trader_id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mLedger Create (0.5ms)[0m  [1m[32mINSERT INTO "ledgers" ("trader_id", "commodity_id", "qty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["trader_id", 1], ["commodity_id", 8], ["qty", 8], ["created_at", "2020-05-06 00:30:04.275660"], ["updated_at", "2020-05-06 00:30:04.275660"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1 LIMIT $2[0m  [["trader_id", 1], ["LIMIT", 11]]
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1 LIMIT $2[0m  [["trader_id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 1]]
+  [1m[36mLedger Load (0.3ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers" ORDER BY "ledgers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLedger Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "ledgers" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mLedger Load (0.3ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers"[0m
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCommodity Create (0.4ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "iPhones"], ["price", "300.0"], ["created_at", "2020-05-06 00:50:21.268917"], ["updated_at", "2020-05-06 00:50:21.268917"]]
+  [1m[36mLedger Create (0.5ms)[0m  [1m[32mINSERT INTO "ledgers" ("trader_id", "commodity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["trader_id", 3], ["commodity_id", 11], ["created_at", "2020-05-06 00:50:21.271557"], ["updated_at", "2020-05-06 00:50:21.271557"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mLedger Load (0.5ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 3]]
+  [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrader Create (0.5ms)[0m  [1m[32mINSERT INTO "traders" ("name", "money", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Dumbo"], ["money", "1.0"], ["created_at", "2020-05-06 00:51:48.063048"], ["updated_at", "2020-05-06 00:51:48.063048"]]
+  [1m[36mLedger Create (0.6ms)[0m  [1m[32mINSERT INTO "ledgers" ("trader_id", "commodity_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["trader_id", 11], ["commodity_id", 4], ["created_at", "2020-05-06 00:51:48.065645"], ["updated_at", "2020-05-06 00:51:48.065645"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCommodity Load (0.6ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mLedger Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "ledgers" WHERE "ledgers"."commodity_id" = $1 LIMIT $2[0m  [["commodity_id", 4], ["LIMIT", 1]]
+  [1m[36mLedger Load (0.2ms)[0m  [1m[34mSELECT "ledgers".* FROM "ledgers" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 4]]
+Started GET "/traders" for ::1 at 2020-05-05 20:55:58 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TradersController#index as HTML
+  [1m[36mTrader Load (0.8ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 6.7ms | ActiveRecord: 7.1ms | Allocations: 7273)
+
+
+Started GET "/traders" for ::1 at 2020-05-05 20:56:26 -0400
+  
+SyntaxError (/Users/cl/Desktop/seir-flex-cm-files/w21d3/w21d3_student_examples/trading_app/trading_app_api/app/controllers/traders_controller.rb:8: syntax error, unexpected '(', expecting end
+    render json: @traders (include: :commodities)
+                          ^
+/Users/cl/Desktop/seir-flex-cm-files/w21d3/w21d3_student_examples/trading_app/trading_app_api/app/controllers/traders_controller.rb:51: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/traders_controller.rb:8: syntax error, unexpected '(', expecting end
+app/controllers/traders_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+app/controllers/traders_controller.rb:8: syntax error, unexpected '(', expecting end
+app/controllers/traders_controller.rb:51: syntax error, unexpected end-of-input, expecting end
+Started GET "/traders" for ::1 at 2020-05-05 20:57:11 -0400
+Processing by TradersController#index as HTML
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.9ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 1]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 2]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.7ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 3]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.8ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 4]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.6ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 5]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.6ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 6]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 7]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 8]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 9]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 10]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 11]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+Completed 200 OK in 63ms (Views: 0.1ms | ActiveRecord: 16.5ms | Allocations: 26765)
+
+
+Started GET "/commodities" for ::1 at 2020-05-05 20:57:40 -0400
+Processing by CommoditiesController#index as HTML
+  [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 1]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.5ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 2]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.5ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 3]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.5ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 4]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 5]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.7ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 6]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 7]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 8]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 9]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 10]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 11]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+Completed 200 OK in 51ms (Views: 0.1ms | ActiveRecord: 17.7ms | Allocations: 23520)
+
+
+Started GET "/commodities" for ::1 at 2020-05-05 20:58:18 -0400
+Processing by CommoditiesController#index as HTML
+  [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 1]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 2]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (1.1ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 3]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 4]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.7ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 5]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 6]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.9ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 7]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 8]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 9]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 10]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+  [1m[36mTrader Load (0.3ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 11]]
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 5.6ms | Allocations: 13544)
+
+
+Started GET "/traders" for ::1 at 2020-05-05 20:58:24 -0400
+Processing by TradersController#index as HTML
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders"[0m
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 1]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 2]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 3]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 4]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 5]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 6]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 7]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 8]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 9]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 10]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 11]]
+  ↳ app/controllers/traders_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 13971)
+
+
+Started GET "/traders/1" for ::1 at 2020-05-05 20:59:09 -0400
+Processing by TradersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTrader Load (0.2ms)[0m  [1m[34mSELECT "traders".* FROM "traders" WHERE "traders"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/traders_controller.rb:44:in `set_trader'
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" INNER JOIN "ledgers" ON "commodities"."id" = "ledgers"."commodity_id" WHERE "ledgers"."trader_id" = $1[0m  [["trader_id", 1]]
+  ↳ app/controllers/traders_controller.rb:13:in `show'
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 11.2ms | Allocations: 12093)
+
+
+Started GET "/commodities/1" for ::1 at 2020-05-05 20:59:15 -0400
+Processing by CommoditiesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/commodities_controller.rb:44:in `set_commodity'
+  [1m[36mTrader Load (0.4ms)[0m  [1m[34mSELECT "traders".* FROM "traders" INNER JOIN "ledgers" ON "traders"."id" = "ledgers"."trader_id" WHERE "ledgers"."commodity_id" = $1[0m  [["commodity_id", 1]]
+  ↳ app/controllers/commodities_controller.rb:13:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 2419)
+
+
